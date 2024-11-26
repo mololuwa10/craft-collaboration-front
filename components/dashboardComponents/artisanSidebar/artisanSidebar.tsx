@@ -104,14 +104,16 @@ const ArtisanSidebar = () => {
 		const fetchUnreadCount = async () => {
 			try {
 				const response = await fetch(
-					"http://localhost:8080/api/messages/unread-count",
+					"https://dissertation-project-backend-b9bee012d5f1.herokuapp.com/api/messages/unread-count",
 					{
 						headers: {
 							Authorization: `Bearer ${jwt}`,
 						},
 					}
 				);
-				if (!response.ok) throw new Error("Failed to fetch unread count");
+				if (!response.ok) {
+					throw new Error("Failed to fetch unread count");
+				}
 				const data = await response.json();
 				setNotificationCount(data.unreadCount);
 			} catch (error) {

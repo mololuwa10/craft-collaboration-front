@@ -44,7 +44,8 @@ export default function CategoriesComponents() {
 						</h2>
 						<Link
 							className="text-lg font-medium tracking-tight text-gray-900 hover:text-blue-600 hover:underline"
-							href="#">
+							href="#"
+						>
 							View All Categories
 						</Link>
 					</div>
@@ -54,18 +55,20 @@ export default function CategoriesComponents() {
 							opts={{
 								align: "start",
 							}}
-							className="w-full p-4">
+							className="w-full p-4"
+						>
 							<CarouselContent>
 								{categories.map((category, index) => (
 									<CarouselItem
 										key={index}
-										className="md:basis-1/2 lg:basis-1/3">
+										className="md:basis-1/2 lg:basis-1/3"
+									>
 										<div className="group relative">
 											<div className="aspect-h-1 aspect-w-1  overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-80">
 												<img
 													src={
 														category.image
-															? `http://localhost:8080${category.image}`
+															? `https://dissertation-project-backend-b9bee012d5f1.herokuapp.com${category.image}`
 															: "/blacktee.jpg"
 													}
 													alt={category.label}
@@ -79,7 +82,8 @@ export default function CategoriesComponents() {
 															href={{
 																pathname: "/Categories",
 																query: { categoryId: category.value },
-															}}>
+															}}
+														>
 															<span
 																aria-hidden="true"
 																className="absolute inset-0"

@@ -223,7 +223,10 @@ export default function EditProduct() {
 							{product?.imageUrls.map((imageUrl, index) => (
 								<Image
 									key={index}
-									src={`http://localhost:8080${imageUrl}` || "/noavatar.png"}
+									src={
+										`https://dissertation-project-backend-b9bee012d5f1.herokuapp.com${imageUrl}` ||
+										"/noavatar.png"
+									}
 									alt={`Product Image ${index + 1}`}
 									fill
 								/>

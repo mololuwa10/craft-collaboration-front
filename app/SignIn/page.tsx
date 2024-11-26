@@ -16,7 +16,8 @@ export default function SignIn() {
 	const { login, error } = useLogin();
 
 	const handleLoginWithGoogle = () => {
-		window.location.href = "http://localhost:8080/oauth2/authorization/google";
+		window.location.href =
+			"https://dissertation-project-backend-b9bee012d5f1.herokuapp.com/oauth2/authorization/google";
 	};
 
 	const handleSubmit = async (event: { preventDefault: () => void }) => {

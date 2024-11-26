@@ -124,7 +124,8 @@ const BuyAgain = () => {
 							productPrice: item.productDTO.productPrice,
 							productDiscount: item.productDTO.productDiscount,
 							imageUrls: item.productDTO.imageUrls.map(
-								(url) => `http://localhost:8080${url}`
+								(url) =>
+									`https://dissertation-project-backend-b9bee012d5f1.herokuapp.com${url}`
 							),
 						}))
 					)

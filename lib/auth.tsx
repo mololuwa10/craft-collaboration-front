@@ -53,7 +53,7 @@ export const createCategoryOrSubcategory = async (
 	parentId?: number | string
 ) => {
 	try {
-		let url = "http://localhost:8080/api/categories";
+		let url = "https://dissertation-project-backend-b9bee012d5f1.herokuapp.com/api/categories";
 		if (parentId !== undefined) {
 			url += `/${parentId}/subcategories`;
 		}
@@ -93,7 +93,7 @@ export const createCategoryOrSubcategory = async (
 export const deleteCategory = async (categoryId: number, jwt: string) => {
 	try {
 		const response = await fetch(
-			`http://localhost:8080/api/categories/${categoryId}`,
+			`https://dissertation-project-backend-b9bee012d5f1.herokuapp.com/api/categories/${categoryId}`,
 			{
 				method: "DELETE",
 				headers: {
@@ -115,7 +115,7 @@ export const deleteCategory = async (categoryId: number, jwt: string) => {
 // Users Function
 export const registerUser = async (userData: any) => {
 	try {
-		const response = await fetch("http://localhost:8080/api/auth/register", {
+		const response = await fetch("https://dissertation-project-backend-b9bee012d5f1.herokuapp.com/api/auth/register", {
 			method: "POST",
 			headers: {
 				"Content-Type": "application/json",
@@ -149,7 +149,7 @@ export const updateUser = async (
 	jwt: string
 ) => {
 	try {
-		const url = `http://localhost:8080/api/admin/updateUser/${userId}`;
+		const url = `https://dissertation-project-backend-b9bee012d5f1.herokuapp.com/api/admin/updateUser/${userId}`;
 		const response = await fetch(url, {
 			method: "PUT",
 			headers: {
@@ -180,7 +180,7 @@ export const createArtisanProfile = async (userId: number, jwt: string) => {
 	}
 	try {
 		const response = await fetch(
-			`http://localhost:8080/api/user/createArtisanProfile`,
+			`https://dissertation-project-backend-b9bee012d5f1.herokuapp.com/api/user/createArtisanProfile`,
 			{
 				method: "POST",
 				headers: {
@@ -229,7 +229,7 @@ export const updateArtisanProfile = async (
 	}
 
 	try {
-		const url = `http://localhost:8080/api/artisan`;
+		const url = `https://dissertation-project-backend-b9bee012d5f1.herokuapp.com/api/artisan`;
 		const response = await fetch(url, {
 			method: "PUT",
 			headers: {
@@ -260,7 +260,7 @@ export const addProduct = async (
 	jwt: string
 ) => {
 	try {
-		const url = "http://localhost:8080/api/products";
+		const url = "https://dissertation-project-backend-b9bee012d5f1.herokuapp.com/api/products";
 		const formData = new FormData();
 		formData.append("product", JSON.stringify(productData));
 		formData.append("attributes", JSON.stringify(attributes));
@@ -303,7 +303,7 @@ export const uploadProductImages = async (
 	}
 
 	const response = await fetch(
-		`http://localhost:8080/api/products/${productId}/images`,
+		`https://dissertation-project-backend-b9bee012d5f1.herokuapp.com/api/products/${productId}/images`,
 		{
 			method: "POST",
 			headers: {
@@ -324,7 +324,7 @@ export const uploadProductImages = async (
 export const deleteProduct = async (productId: number, jwt: string) => {
 	try {
 		const response = await fetch(
-			`http://localhost:8080/api/products/${productId}`,
+			`https://dissertation-project-backend-b9bee012d5f1.herokuapp.com/api/products/${productId}`,
 			{
 				method: "DELETE",
 				headers: {
@@ -392,7 +392,7 @@ export const updateProduct = async (
 	jwt: string
 ) => {
 	try {
-		const url = `http://localhost:8080/api/products/${productId}`;
+		const url = `https://dissertation-project-backend-b9bee012d5f1.herokuapp.com/api/products/${productId}`;
 		const formData = new FormData();
 		formData.append("product", JSON.stringify(productData));
 		formData.append("attributes", JSON.stringify(attributes));
@@ -422,7 +422,7 @@ export const updateProduct = async (
 // Testimonial --------------------------------------------------------------
 export const addTestimonial = async (testimonialData: any, jwt: string) => {
 	try {
-		const response = await fetch("http://localhost:8080/api/testimonials", {
+		const response = await fetch("https://dissertation-project-backend-b9bee012d5f1.herokuapp.com/api/testimonials", {
 			method: "POST",
 			headers: {
 				Authorization: `Bearer ${jwt}`,
@@ -455,7 +455,7 @@ export const addReview = async (
 	const endpoint = type === "product" ? `product/${id}` : `artisan/${id}`;
 	try {
 		const response = await fetch(
-			`http://localhost:8080/api/reviews/${endpoint}`,
+			`https://dissertation-project-backend-b9bee012d5f1.herokuapp.com/api/reviews/${endpoint}`,
 			{
 				method: "POST",
 				headers: {
@@ -488,7 +488,7 @@ export const updateCartItemQuantity = async (
 	jwt: any
 ) => {
 	const response = await fetch(
-		`http://localhost:8080/api/shoppingCart/cartItem/${cartItemId}`,
+		`https://dissertation-project-backend-b9bee012d5f1.herokuapp.com/api/shoppingCart/cartItem/${cartItemId}`,
 		{
 			method: "PUT",
 			headers: {
@@ -508,7 +508,7 @@ export const updateCartItemQuantity = async (
 // Remove a product from the cart
 export const removeCartItem = async (cartItemId: any, jwt: any) => {
 	const response = await fetch(
-		`http://localhost:8080/api/shoppingCart/cartItem/${cartItemId}`,
+		`https://dissertation-project-backend-b9bee012d5f1.herokuapp.com/api/shoppingCart/cartItem/${cartItemId}`,
 		{
 			method: "DELETE",
 			headers: {
@@ -533,7 +533,7 @@ export const addProductToCart = async (
 ) => {
 	try {
 		const response = await fetch(
-			`http://localhost:8080/api/shoppingCart/addToCart/${productId}`,
+			`https://dissertation-project-backend-b9bee012d5f1.herokuapp.com/api/shoppingCart/addToCart/${productId}`,
 			{
 				method: "POST",
 				headers: {
@@ -562,7 +562,7 @@ export const addProductToCart = async (
 // Checkout Function
 export const checkout = async (checkoutData: any, jwt: any) => {
 	const response = await fetch(
-		"http://localhost:8080/api/stripe/create-checkout-session",
+		"https://dissertation-project-backend-b9bee012d5f1.herokuapp.com/api/stripe/create-checkout-session",
 		{
 			method: "POST",
 			headers: {
@@ -589,7 +589,7 @@ export const handleCancelOrder = async (orderId: any) => {
 
 	try {
 		const response = await fetch(
-			`http://localhost:8080/api/orders/${orderId}`,
+			`https://dissertation-project-backend-b9bee012d5f1.herokuapp.com/api/orders/${orderId}`,
 			{
 				method: "DELETE",
 				headers: {
@@ -617,7 +617,7 @@ export const createAddresses = async (address: Addresses) => {
 	const jwt = localStorage.getItem("jwt");
 
 	try {
-		const response = await fetch("http://localhost:8080/api/addresses", {
+		const response = await fetch("https://dissertation-project-backend-b9bee012d5f1.herokuapp.com/api/addresses", {
 			method: "POST",
 			headers: {
 				"Content-Type": "application/json",
@@ -644,7 +644,7 @@ export const updateAddress = async (addressId: number, address: Addresses) => {
 
 	try {
 		const response = await fetch(
-			`http://localhost:8080/api/addresses/${addressId}`,
+			`https://dissertation-project-backend-b9bee012d5f1.herokuapp.com/api/addresses/${addressId}`,
 			{
 				method: "PUT",
 				headers: {
@@ -672,7 +672,7 @@ export const deleteAddress = async (addressId: number) => {
 
 	try {
 		const response = await fetch(
-			`http://localhost:8080/api/addresses/${addressId}`,
+			`https://dissertation-project-backend-b9bee012d5f1.herokuapp.com/api/addresses/${addressId}`,
 			{
 				method: "DELETE",
 				headers: {
@@ -698,7 +698,7 @@ export const setDefaultAddress = async (addressId: number) => {
 
 	try {
 		const response = await fetch(
-			`http://localhost:8080/api/addresses/set-default/${addressId}`,
+			`https://dissertation-project-backend-b9bee012d5f1.herokuapp.com/api/addresses/set-default/${addressId}`,
 			{
 				method: "PUT",
 				headers: {

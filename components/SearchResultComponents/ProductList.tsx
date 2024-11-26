@@ -9,10 +9,10 @@ const fetchReviewsByProduct = async (productId: any) => {
 	if (productId !== undefined) {
 		try {
 			const response = await fetch(
-				`http://localhost:8080/api/reviews/product/${productId}`
+				`https://dissertation-project-backend-b9bee012d5f1.herokuapp.com/api/reviews/product/${productId}`
 			);
-			const data = await response.json();
-			return data; // Returns the array of reviews
+			// const data = await response.json();
+			return await response.json(); // Returns the array of reviews
 		} catch (error) {
 			console.error("Error fetching reviews:", error);
 			return []; // Return empty array in case of error
@@ -80,7 +80,7 @@ const ProductList = ({ products }: { products: any }) => {
 								<img
 									src={
 										product.imageUrls.length
-											? `http://localhost:8080${product.imageUrls[0]}`
+											? `https://dissertation-project-backend-b9bee012d5f1.herokuapp.com${product.imageUrls[0]}`
 											: "/blacktee.jpg"
 									}
 									alt={product.productName}
@@ -94,7 +94,8 @@ const ProductList = ({ products }: { products: any }) => {
 											href={{
 												pathname: "/ProductOverview",
 												query: { productId: product.productId },
-											}}>
+											}}
+										>
 											<span aria-hidden="true" className="absolute inset-0" />
 											{product.productName}
 										</Link>
@@ -119,7 +120,8 @@ const ProductList = ({ products }: { products: any }) => {
 												: "fill-current text-gray-400"
 										}`}
 										viewBox="0 0 20 20"
-										xmlns="http://www.w3.org/2000/svg">
+										xmlns="http://www.w3.org/2000/svg"
+									>
 										<path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
 									</svg>
 								))}

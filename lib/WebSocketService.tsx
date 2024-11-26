@@ -25,7 +25,10 @@ const connect = (
 	};
 
 	stompClient = new Client({
-		webSocketFactory: () => new SockJS("http://localhost:8080/ws"),
+		webSocketFactory: () =>
+			new SockJS(
+				"https://dissertation-project-backend-b9bee012d5f1.herokuapp.com/ws"
+			),
 		connectHeaders: headers,
 		onConnect: () => {
 			if (stompClient) {

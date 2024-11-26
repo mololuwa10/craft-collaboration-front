@@ -92,7 +92,7 @@ const CartItem = ({
 			{/* Image */}
 			<div className="flex-shrink-0">
 				<img
-					src={`http://localhost:8080${item.product.imageUrls[0]}`}
+					src={`https://dissertation-project-backend-b9bee012d5f1.herokuapp.com${item.product.imageUrls[0]}`}
 					alt={item.product.productName}
 					className="w-20 h-20 object-cover rounded"
 				/>

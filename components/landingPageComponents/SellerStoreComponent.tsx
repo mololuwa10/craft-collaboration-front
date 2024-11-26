@@ -13,7 +13,7 @@ import TopSellerComponents from "./TopSellerComponent";
 const fetchTopArtisans = async () => {
 	try {
 		const response = await fetch(
-			"http://localhost:8080/api/sales/top-artisans"
+			"https://dissertation-project-backend-b9bee012d5f1.herokuapp.com/api/sales/top-artisans"
 		);
 		if (!response.ok) {
 			throw new Error("Network response was not ok");

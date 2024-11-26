@@ -39,7 +39,7 @@ export default function EditTestimonials() {
 		const jwt = localStorage.getItem("jwt");
 		try {
 			const response = await fetch(
-				`http://localhost:8080/api/admin/approveTestimonial/${testimonialId}`,
+				`https://dissertation-project-backend-b9bee012d5f1.herokuapp.com/api/admin/approveTestimonial/${testimonialId}`,
 				{
 					method: "PATCH",
 					headers: {

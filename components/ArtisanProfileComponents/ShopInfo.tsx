@@ -30,7 +30,7 @@ export default function ShopInfo() {
 								<img
 									src={
 										userDetails.artisanProfile?.profilePicture
-											? `http://localhost:8080${userDetails.artisanProfile?.profilePicture}`
+											? `https://dissertation-project-backend-b9bee012d5f1.herokuapp.com${userDetails.artisanProfile?.profilePicture}`
 											: "/blacktee.jpg"
 									}
 									alt={userDetails?.artisanProfile?.storeName}
@@ -53,7 +53,7 @@ export default function ShopInfo() {
 								<img
 									src={
 										userDetails.artisanProfile?.profilePicture
-											? `http://localhost:8080${userDetails.artisanProfile?.profilePicture}`
+											? `https://dissertation-project-backend-b9bee012d5f1.herokuapp.com${userDetails.artisanProfile?.profilePicture}`
 											: "/blacktee.jpg"
 									}
 									alt={userDetails?.artisanProfile?.storeName}

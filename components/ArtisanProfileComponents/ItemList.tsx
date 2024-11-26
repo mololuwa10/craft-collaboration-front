@@ -137,7 +137,7 @@ const ItemList = () => {
 									<img
 										src={
 											product.imageUrls
-												? `http://localhost:8080${product.imageUrls[0]}`
+												? `https://dissertation-project-backend-b9bee012d5f1.herokuapp.com${product.imageUrls[0]}`
 												: "/blacktee.jpg"
 										}
 										alt={product.productName}
@@ -148,7 +148,8 @@ const ItemList = () => {
 										<svg
 											className="w-6 h-6 text-gray-800"
 											fill="none"
-											stroke="currentColor">
+											stroke="currentColor"
+										>
 											<Heart />
 										</svg>
 									</button>
@@ -160,7 +161,8 @@ const ItemList = () => {
 												href={{
 													pathname: "/ProductOverview",
 													query: { productId: product.productId },
-												}}>
+												}}
+											>
 												<span aria-hidden="true" className="absolute inset-0" />
 												{product.productName}
 											</Link>
@@ -198,7 +200,8 @@ const ItemList = () => {
 								className="w-32 h-32 mx-auto"
 								fill="none"
 								viewBox="0 0 24 24"
-								stroke="currentColor">
+								stroke="currentColor"
+							>
 								<path
 									strokeLinecap="round"
 									strokeLinejoin="round"

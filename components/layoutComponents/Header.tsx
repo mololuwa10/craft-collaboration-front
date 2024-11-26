@@ -58,8 +58,10 @@ export default function Header() {
 				const verified = await checkVerificationStatus();
 				setIsVerified(verified);
 			} catch (error) {
+				console.error("Error checking verification status:", error);
 				// Handle errors, for example by setting an error state
-				console.error("Error during verification check", error);
+				// console?.error("Error during verification check", error);
+				setIsVerified(false);
 			}
 		};
 

@@ -39,7 +39,19 @@ export default function AddAddress() {
 	useEffect(() => {
 		const fetchCountries = async () => {
 			try {
-				const response = await fetch("https://restcountries.com/v3.1/all");
+				// const response = await fetch("https://restcountries.com/v3.1/all");
+
+				const response = await fetch(
+					"https://restfulcountries.com/api/v1/countries",
+					{
+						method: "GET",
+						headers: {
+							"Content-Type": "application/json",
+							Authorization: "1690|hwmbwposUyIfcTvMWiPNB4DaOIZtBVkaF8Gf0LTK",
+						},
+					}
+				);
+				console.log(response);
 				if (!response.ok) {
 					throw new Error(`HTTP error! status: ${response.status}`);
 				}

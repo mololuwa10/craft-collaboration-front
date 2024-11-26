@@ -161,7 +161,7 @@ const OrderCard = ({ orderInfo, item }: { orderInfo: Order; item: any }) => {
 					</div>
 					<div className="flex-none ml-4">
 						<img
-							src={`http://localhost:8080${item.productDTO.imageUrls[0]}`}
+							src={`https://dissertation-project-backend-b9bee012d5f1.herokuapp.com${item.productDTO.imageUrls[0]}`}
 							alt={item.productDTO.productName}
 							className="w-32 h-44 object-cover rounded-md mb-2"
 						/>

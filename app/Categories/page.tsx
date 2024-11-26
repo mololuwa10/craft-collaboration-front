@@ -59,7 +59,7 @@ export default function Categories() {
 											<img
 												src={
 													subCategoryItem.image
-														? `http://localhost:8080${subCategoryItem.image}`
+														? `https://dissertation-project-backend-b9bee012d5f1.herokuapp.com${subCategoryItem.image}`
 														: "/blacktee.jpg"
 												}
 												alt=""

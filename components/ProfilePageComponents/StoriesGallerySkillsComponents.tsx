@@ -50,7 +50,7 @@ export default function StoriesGallerySkillsComponents() {
 							(image: any, index: any) => (
 								<div key={index} className="relative">
 									<img
-										src={`http://localhost:8080${image}`}
+										src={`https://dissertation-project-backend-b9bee012d5f1.herokuapp.com${image}`}
 										alt={`Gallery Image ${index}`}
 										className="w-full h-[30rem] object-cover rounded-lg"
 									/>

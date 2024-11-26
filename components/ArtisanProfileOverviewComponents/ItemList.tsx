@@ -134,7 +134,7 @@ const ItemList = ({ artisan }: { artisan: ArtisanProfile }) => {
 									<img
 										src={
 											product.imageUrls
-												? `http://localhost:8080${product.imageUrls[0]}`
+												? `https://dissertation-project-backend-b9bee012d5f1.herokuapp.com${product.imageUrls[0]}`
 												: "/blacktee.jpg"
 										}
 										alt={product.productName}

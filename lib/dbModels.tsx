@@ -84,9 +84,13 @@ export const useFetchCategoryById = (categoryId: any) => {
 	const [category, setCategory] = useState<Category | null>(null);
 
 	useEffect(() => {
-		if (!categoryId) return;
+		if (!categoryId) {
+			return;
+		}
 
-		fetch(`http://localhost:8080/api/categories/${categoryId}`)
+		fetch(
+			`https://dissertation-project-backend-b9bee012d5f1.herokuapp.com/api/categories/${categoryId}`
+		)
 			.then((response) => response.json())
 			.then((data) => {
 				const formattedData: Category = {
@@ -129,13 +133,16 @@ export const useFetchUsers = () => {
 		const jwt = localStorage.getItem("jwt");
 
 		if (jwt) {
-			fetch("http://localhost:8080/api/admin/allUsers", {
-				method: "GET",
-				headers: {
-					"Content-Type": "application/json",
-					Authorization: `Bearer ${jwt}`,
-				},
-			})
+			fetch(
+				"https://dissertation-project-backend-b9bee012d5f1.herokuapp.com/api/admin/allUsers",
+				{
+					method: "GET",
+					headers: {
+						"Content-Type": "application/json",
+						Authorization: `Bearer ${jwt}`,
+					},
+				}
+			)
 				.then((response) => {
 					// Check for unauthorized response
 					if (response.status === 401) {
@@ -178,7 +185,7 @@ export const useFetchUsers = () => {
 export async function fetchUserById(userId: any, jwt: string) {
 	try {
 		const response = await fetch(
-			`http://localhost:8080/api/admin/user/${userId}`,
+			`https://dissertation-project-backend-b9bee012d5f1.herokuapp.com/api/admin/user/${userId}`,
 			{
 				method: "GET",
 				headers: {
@@ -193,8 +200,8 @@ export async function fetchUserById(userId: any, jwt: string) {
 			throw new Error(`Error fetching user: ${response.status}`);
 		}
 
-		const user = await response.json();
-		return user;
+		// const user = await response.json();
+		return await response.json();
 	} catch (error) {
 		console.error("Fetching user failed:", error);
 		throw error;
@@ -203,20 +210,23 @@ export async function fetchUserById(userId: any, jwt: string) {
 
 export async function fetchAllRoles(jwt: string) {
 	try {
-		const response = await fetch("http://localhost:8080/api/admin/allRoles", {
-			method: "GET",
-			headers: {
-				Authorization: `Bearer ${jwt}`,
-				"Content-Type": "application/json",
-			},
-		});
+		const response = await fetch(
+			"https://dissertation-project-backend-b9bee012d5f1.herokuapp.com/api/admin/allRoles",
+			{
+				method: "GET",
+				headers: {
+					Authorization: `Bearer ${jwt}`,
+					"Content-Type": "application/json",
+				},
+			}
+		);
 
 		if (!response.ok) {
 			throw new Error("Failed to fetch roles");
 		}
 
-		const roles = await response.json();
-		return roles;
+		// const roles = await response.json();
+		return await response.json();
 	} catch (error) {
 		console.error("Error fetching roles:", error);
 		throw error;
@@ -226,12 +236,15 @@ export async function fetchAllRoles(jwt: string) {
 // Artisan functions
 // Get all artisans
 export async function fetchAllArtisans() {
-	const response = await fetch("http://localhost:8080/api/user/allArtisans", {
-		method: "GET",
-		headers: {
-			"Content-Type": "application/json",
-		},
-	});
+	const response = await fetch(
+		"https://dissertation-project-backend-b9bee012d5f1.herokuapp.com/api/user/allArtisans",
+		{
+			method: "GET",
+			headers: {
+				"Content-Type": "application/json",
+			},
+		}
+	);
 
 	if (!response.ok) {
 		throw new Error("Failed to fetch artisans");
@@ -243,7 +256,9 @@ export async function fetchAllArtisans() {
 // Getting all new artisans within the span of 2 weeks
 export const fetchNewArtisans = async (): Promise<ArtisanProfile[]> => {
 	try {
-		const response = await fetch("http://localhost:8080/api/user/newArtisans");
+		const response = await fetch(
+			"https://dissertation-project-backend-b9bee012d5f1.herokuapp.com/api/user/newArtisans"
+		);
 		if (!response.ok) {
 			throw new Error("Network response was not ok");
 		}
@@ -260,7 +275,7 @@ export const fetchArtisanById = async (
 ): Promise<ArtisanProfile> => {
 	try {
 		const response = await fetch(
-			`http://localhost:8080/api/artisan/${artisanId}`
+			`https://dissertation-project-backend-b9bee012d5f1.herokuapp.com/api/artisan/${artisanId}`
 		);
 		if (!response.ok) {
 			throw new Error("Network response was not ok");
@@ -283,7 +298,9 @@ export const useFetchSearchedProducts = (
 
 	useEffect(() => {
 		const params = new URLSearchParams();
-		if (searchTerm) params.append("searchTerm", searchTerm);
+		if (searchTerm) {
+			params.append("searchTerm", searchTerm);
+		}
 
 		Object.keys(filters).forEach((key) => {
 			const value = filters[key];
@@ -302,7 +319,7 @@ export const useFetchSearchedProducts = (
 			setLoading(true);
 			try {
 				const response = await fetch(
-					`http://localhost:8080/api/products/search?${params}`
+					`https://dissertation-project-backend-b9bee012d5f1.herokuapp.com/api/products/search?${params}`
 				);
 				if (!response.ok) {
 					throw new Error("Network response was not ok");
@@ -354,7 +371,9 @@ export const useFetchProducts = () => {
 	const [products, setProducts] = useState([]);
 	// Fetch products with selected category filter
 	useEffect(() => {
-		fetch("http://localhost:8080/api/products")
+		fetch(
+			"https://dissertation-project-backend-b9bee012d5f1.herokuapp.com/api/products"
+		)
 			.then((response) => response.json())
 			.then((data) => {
 				const formattedData = data.map((product: Product) => ({
@@ -383,7 +402,7 @@ export const useFetchProducts = () => {
 export async function highestSellingProducts() {
 	try {
 		const response = await fetch(
-			"http://localhost:8080/api/orders/product-sales",
+			"https://dissertation-project-backend-b9bee012d5f1.herokuapp.com/api/orders/product-sales",
 			{
 				method: "GET",
 				headers: {
@@ -407,7 +426,7 @@ export async function highestSellingProducts() {
 export async function fetchProductById(productId: any) {
 	try {
 		const response = await fetch(
-			`http://localhost:8080/api/products/${productId}`,
+			`https://dissertation-project-backend-b9bee012d5f1.herokuapp.com/api/products/${productId}`,
 			{
 				method: "GET",
 				headers: {
@@ -420,8 +439,8 @@ export async function fetchProductById(productId: any) {
 			throw new Error(`Error fetching product: ${response.status}`);
 		}
 
-		const product = await response.json();
-		return product;
+		// const product = await response.json();
+		return await response.json();
 	} catch (error) {
 		console.error("Fetching product failed:", error);
 		throw error;
@@ -432,7 +451,7 @@ export async function fetchProductById(productId: any) {
 export async function fetchProductsByArtisanId(artisanId: any) {
 	try {
 		const response = await fetch(
-			`http://localhost:8080/api/products/artisan/${artisanId}`,
+			`https://dissertation-project-backend-b9bee012d5f1.herokuapp.com/api/products/artisan/${artisanId}`,
 			{
 				method: "GET",
 				headers: {
@@ -465,7 +484,9 @@ export const useFetchAllCategories = () => {
 	const [categories, setCategories] = useState<Category[]>([]);
 
 	useEffect(() => {
-		fetch("http://localhost:8080/api/categories/allCategories")
+		fetch(
+			"https://dissertation-project-backend-b9bee012d5f1.herokuapp.com/api/categories/allCategories"
+		)
 			.then((response) => response.json())
 			.then((data) => {
 				const formattedData = data.map((category: Category) => ({
@@ -493,7 +514,9 @@ export const useFetchCategories = () => {
 	const [categories, setCategories] = useState([]);
 
 	useEffect(() => {
-		fetch("http://localhost:8080/api/categories")
+		fetch(
+			"https://dissertation-project-backend-b9bee012d5f1.herokuapp.com/api/categories"
+		)
 			.then((response) => response.json())
 			.then((data) => {
 				const formattedData = data.map((category: Category) => ({
@@ -521,7 +544,9 @@ export const useFetchSubcategories = (categoryId: any) => {
 	// const { updateFilters, filters } = useFilterContext();
 
 	useEffect(() => {
-		fetch(`http://localhost:8080/api/categories/${categoryId}/subcategories`)
+		fetch(
+			`https://dissertation-project-backend-b9bee012d5f1.herokuapp.com/api/categories/${categoryId}/subcategories`
+		)
 			.then((response) => response.json())
 			.then((data) => {
 				const formattedData = data.map((category: Category) => ({
@@ -561,12 +586,15 @@ export const useGetAllTestimonials = () => {
 	useEffect(() => {
 		const fetchTestimonials = async () => {
 			try {
-				const response = await fetch("http://localhost:8080/api/testimonials", {
-					method: "GET",
-					headers: {
-						"Content-Type": "application/json",
-					},
-				});
+				const response = await fetch(
+					"https://dissertation-project-backend-b9bee012d5f1.herokuapp.com/api/testimonials",
+					{
+						method: "GET",
+						headers: {
+							"Content-Type": "application/json",
+						},
+					}
+				);
 
 				if (!response.ok) {
 					throw new Error("Failed to fetch testimonials");
@@ -607,7 +635,7 @@ export const useGetTestimonials = () => {
 		const fetchTestimonials = async () => {
 			try {
 				const response = await fetch(
-					"http://localhost:8080/api/testimonials/approvedTestimonials",
+					"https://dissertation-project-backend-b9bee012d5f1.herokuapp.com/api/testimonials/approvedTestimonials",
 					{
 						method: "GET",
 						headers: {
@@ -655,7 +683,7 @@ export const useGetMoreTestimonials = (page: any, pageSize: any) => {
 		const fetchTestimonials = async () => {
 			try {
 				const response = await fetch(
-					`http://localhost:8080/api/testimonials/approvedTestimonials?page=${page}&pageSize=${pageSize}`,
+					`https://dissertation-project-backend-b9bee012d5f1.herokuapp.com/api/testimonials/approvedTestimonials?page=${page}&pageSize=${pageSize}`,
 					{
 						method: "GET",
 						headers: {
@@ -703,7 +731,7 @@ export const useGetTestimonialsById = (testimonialId: any) => {
 		const fetchTestimonials = async () => {
 			try {
 				const response = await fetch(
-					`http://localhost:8080/api/testimonials/${testimonialId}`,
+					`https://dissertation-project-backend-b9bee012d5f1.herokuapp.com/api/testimonials/${testimonialId}`,
 					{
 						method: "GET",
 						headers: {
@@ -732,7 +760,7 @@ export const useGetTestimonialsById = (testimonialId: any) => {
 export async function fetchReviewsByProductId(productId: number | string) {
 	try {
 		const response = await fetch(
-			`http://localhost:8080/api/reviews/product/${productId}`
+			`https://dissertation-project-backend-b9bee012d5f1.herokuapp.com/api/reviews/product/${productId}`
 		);
 		if (!response.ok) {
 			throw new Error("Network response was not ok");
@@ -751,7 +779,7 @@ export async function fetchReviewsByProductId(productId: number | string) {
 export async function fetchReviewsByUserId(userId: number | string) {
 	try {
 		const response = await fetch(
-			`http://localhost:8080/api/reviews/user/${userId}`
+			`https://dissertation-project-backend-b9bee012d5f1.herokuapp.com/api/reviews/user/${userId}`
 		);
 		if (!response.ok) {
 			throw new Error("Network response was not ok");
@@ -769,7 +797,7 @@ export async function fetchReviewsByUserId(userId: number | string) {
 // Get Shopping Cart
 export async function fetchShoppingCart(jwt: any) {
 	const response = await fetch(
-		"http://localhost:8080/api/shoppingCart/getCart",
+		"https://dissertation-project-backend-b9bee012d5f1.herokuapp.com/api/shoppingCart/getCart",
 		{
 			method: "GET",
 			headers: {
@@ -791,7 +819,7 @@ export async function fetchShoppingCart(jwt: any) {
 export async function fetchCurrentUserOrders() {
 	const jwt = localStorage.getItem("jwt");
 	const response = await fetch(
-		"http://localhost:8080/api/orders/users/my-orders",
+		"https://dissertation-project-backend-b9bee012d5f1.herokuapp.com/api/orders/users/my-orders",
 		{
 			method: "GET",
 			headers: {
@@ -815,13 +843,16 @@ export async function fetchCurrentUserOrders() {
 // Get all orders
 export async function fetchAllOrders() {
 	const jwt = localStorage.getItem("jwt");
-	const response = await fetch("http://localhost:8080/api/orders/all-orders", {
-		method: "GET",
-		headers: {
-			"Content-Type": "application/json",
-			Authorization: `Bearer ${jwt}`,
-		},
-	});
+	const response = await fetch(
+		"https://dissertation-project-backend-b9bee012d5f1.herokuapp.com/api/orders/all-orders",
+		{
+			method: "GET",
+			headers: {
+				"Content-Type": "application/json",
+				Authorization: `Bearer ${jwt}`,
+			},
+		}
+	);
 	if (!response.ok) {
 		// Handle the error case
 		const message = await response.text();
@@ -839,7 +870,7 @@ export async function fetchOrdersByArtisan() {
 
 	try {
 		const response = await fetch(
-			`http://localhost:8080/api/orders/artisan/orders`,
+			`https://dissertation-project-backend-b9bee012d5f1.herokuapp.com/api/orders/artisan/orders`,
 			{
 				method: "GET",
 				headers: {
@@ -854,8 +885,8 @@ export async function fetchOrdersByArtisan() {
 			throw new Error(`Error: ${response.status}, Message: ${message}`);
 		}
 
-		const orders = await response.json();
-		return orders;
+		// const orders = await response.json();
+		return await response.json();
 	} catch (error) {
 		console.error("Failed to fetch orders:", error);
 		throw error;
@@ -868,7 +899,7 @@ export const getAllConversations = async () => {
 
 	try {
 		const response = await fetch(
-			"http://localhost:8080/api/messages/conversations",
+			"https://dissertation-project-backend-b9bee012d5f1.herokuapp.com/api/messages/conversations",
 			{
 				method: "GET",
 				headers: {
@@ -882,8 +913,8 @@ export const getAllConversations = async () => {
 			throw new Error("Network response was not ok");
 		}
 
-		const conversations = await response.json();
-		return conversations;
+		// const conversations = await response.json();
+		return await response.json();
 	} catch (error) {
 		console.error("Error fetching conversations:", error);
 		throw error;
@@ -898,7 +929,7 @@ export const GetUserAddresses = () => {
 		const fetchUserAddresses = async () => {
 			try {
 				const response = await fetch(
-					"http://localhost:8080/api/addresses/my-addresses",
+					"https://dissertation-project-backend-b9bee012d5f1.herokuapp.com/api/addresses/my-addresses",
 					{
 						method: "GET",
 						headers: {
@@ -926,7 +957,7 @@ export const useGetTopArtisans = () => {
 		const fetchTopArtisans = async () => {
 			try {
 				const response = await fetch(
-					"http://localhost:8080/api/sales/top-artisans"
+					"https://dissertation-project-backend-b9bee012d5f1.herokuapp.com/api/sales/top-artisans"
 				);
 
 				if (!response.ok) {

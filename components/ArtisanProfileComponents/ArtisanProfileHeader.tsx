@@ -29,7 +29,7 @@ const ArtisanProfileHeader = () => {
 					<img
 						src={
 							userDetails.artisanProfile?.storeBanner
-								? `http://localhost:8080${userDetails.artisanProfile?.storeBanner}`
+								? `https://dissertation-project-backend-b9bee012d5f1.herokuapp.com${userDetails.artisanProfile?.storeBanner}`
 								: "/blacktee.jpg"
 						}
 						alt={userDetails?.artisanProfile?.storeName}

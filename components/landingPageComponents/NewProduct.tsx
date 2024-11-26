@@ -14,10 +14,10 @@ export default function NewProduct() {
 	const fetchReviewsByProduct = async (productId: any) => {
 		try {
 			const response = await fetch(
-				`http://localhost:8080/api/reviews/product/${productId}`
+				`https://dissertation-project-backend-b9bee012d5f1.herokuapp.com/api/reviews/product/${productId}`
 			);
-			const data = await response.json();
-			return data;
+			// const data = await response.json();
+			return await response.json();
 		} catch (error) {
 			console.error("Error fetching reviews:", error);
 			return [];
@@ -157,7 +157,7 @@ export default function NewProduct() {
 									<img
 										src={
 											product.image
-												? `http://localhost:8080${product.image}`
+												? `https://dissertation-project-backend-b9bee012d5f1.herokuapp.com${product.image}`
 												: "/blacktee.jpg"
 										}
 										alt={product.label}

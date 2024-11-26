@@ -105,7 +105,7 @@ export default function AdminMessages() {
 		const jwt = localStorage.getItem("jwt") ?? "";
 		try {
 			const response = await fetch(
-				`http://localhost:8080/api/messages/mark-read/${senderId}/${receiverId}`,
+				`https://dissertation-project-backend-b9bee012d5f1.herokuapp.com/api/messages/mark-read/${senderId}/${receiverId}`,
 				{
 					method: "GET",
 					headers: {
@@ -136,7 +136,7 @@ export default function AdminMessages() {
 		async (otherUserId: any) => {
 			try {
 				const response = await fetch(
-					`http://localhost:8080/api/messages/history/${userId}?otherUserId=${otherUserId}`
+					`https://dissertation-project-backend-b9bee012d5f1.herokuapp.com/api/messages/history/${userId}?otherUserId=${otherUserId}`
 				);
 				if (!response.ok) {
 					throw new Error("Failed to fetch messages");

@@ -22,14 +22,14 @@ export default function HighestSellingProducts() {
 	const [productSales, setProductSales] = useState<Products[]>([]);
 
 	useEffect(() => {
-		fetch("http://localhost:8080/api/orders/product-sales")
+		fetch("https://dissertation-project-backend-b9bee012d5f1.herokuapp.com/api/orders/product-sales")
 			.then((response) => response.json())
 			.then((data) => {
 				const enrichedData = data.map((sale: any) => {
 					return {
 						...sale,
 						imageUrl: sale.product.images?.[0]?.imageUrl
-							? `http://localhost:8080${sale.product.images[0].imageUrl}`
+							? `https://dissertation-project-backend-b9bee012d5f1.herokuapp.com${sale.product.images[0].imageUrl}`
 							: "/astronaut.png",
 					};
 				});

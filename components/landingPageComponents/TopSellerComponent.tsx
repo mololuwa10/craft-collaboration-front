@@ -12,7 +12,7 @@ const TopSellerComponents = ({ artisan }: { artisan: TopArtisanProfile }) => {
 			<img
 				className="rounded-t-lg object-cover w-full h-48"
 				src={
-					`http://localhost:8080${artisan.artisan.profilePicture}` ||
+					`https://dissertation-project-backend-b9bee012d5f1.herokuapp.com${artisan.artisan.profilePicture}` ||
 					"/default-profile.jpg"
 				}
 				alt={artisan.artisan.storeName || undefined}
@@ -27,7 +27,8 @@ const TopSellerComponents = ({ artisan }: { artisan: TopArtisanProfile }) => {
 					href={{
 						pathname: "/ArtisanProfileOverview",
 						query: { artisanId: artisan.artisan.artisanId },
-					}}>
+					}}
+				>
 					<button className="text-white bg-gray-800 hover:bg-gray-900 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">
 						View Full Profile
 					</button>

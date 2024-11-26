@@ -74,7 +74,7 @@ export default function ImageGalleryComponents() {
 				{/* Main Image Display */}
 				<div className="mb-4">
 					<img
-						src={`http://localhost:8080${product.imageUrls[selectedImageIndex]}`}
+						src={`https://dissertation-project-backend-b9bee012d5f1.herokuapp.com${product.imageUrls[selectedImageIndex]}`}
 						alt={`Product Image ${selectedImageIndex + 1}`}
 						className="w-full h-auto object-center object-cover"
 					/>
@@ -91,7 +91,7 @@ export default function ImageGalleryComponents() {
 							}`}
 							onClick={() => setSelectedImageIndex(index)}>
 							<img
-								src={`http://localhost:8080${imageUrl}`}
+								src={`https://dissertation-project-backend-b9bee012d5f1.herokuapp.com${imageUrl}`}
 								alt={`Product Image ${index + 1}`}
 								className="w-24 h-24 object-center object-cover"
 							/>

@@ -10,7 +10,7 @@ const ArtisanCard = ({ artisan }: { artisan: ArtisanProfile }) => {
 			<img
 				className="rounded-t-lg object-fit w-full h-48"
 				src={
-					`http://localhost:8080${artisan.profilePicture}` ||
+					`https://dissertation-project-backend-b9bee012d5f1.herokuapp.com${artisan.profilePicture}` ||
 					"/default-profile.jpg"
 				}
 				alt={artisan.storeName || undefined}

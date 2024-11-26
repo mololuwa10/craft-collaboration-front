@@ -59,7 +59,7 @@ export default function Category() {
 
 		try {
 			const response = await fetch(
-				`http://localhost:8080/api/categories/${categoryId}`,
+				`https://dissertation-project-backend-b9bee012d5f1.herokuapp.com/api/categories/${categoryId}`,
 				{
 					method: "PUT",
 					body: formData,

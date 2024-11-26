@@ -257,7 +257,7 @@ export default function EditProduct() {
 									key={index}
 									src={
 										imageUrl
-											? `http://localhost:8080${imageUrl}`
+											? `https://dissertation-project-backend-b9bee012d5f1.herokuapp.com${imageUrl}`
 											: "/noavatar.png"
 									}
 									alt={`Product Image ${index + 1}`}

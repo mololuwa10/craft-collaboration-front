@@ -22,9 +22,12 @@ export const useFetchUserInfo = () => {
 					return;
 				}
 
-				const response = await fetch("http://localhost:8080/api/user/info", {
-					headers: { Authorization: "Bearer " + jwt },
-				});
+				const response = await fetch(
+					"https://dissertation-project-backend-b9bee012d5f1.herokuapp.com/api/user/info",
+					{
+						headers: { Authorization: "Bearer " + jwt },
+					}
+				);
 
 				if (!response.ok) {
 					setIsLoggedIn(false);
@@ -87,14 +90,14 @@ export const useLogout = () => {
 	const [userDetails, setUserDetails] = useState(null);
 	const [isLoggedIn, setIsLoggedIn] = useState(false);
 
-	const handleLogout = () => {
+	return () => {
 		localStorage.removeItem("jwt");
 		setIsLoggedIn(false);
 		setUserDetails(null);
 		router.push("/SignIn");
 	};
 
-	return handleLogout;
+	// return handleLogout;
 };
 
 // Check verification
@@ -103,7 +106,7 @@ export const checkVerificationStatus = async () => {
 		const token = localStorage.getItem("jwt");
 
 		const response = await fetch(
-			`http://localhost:8080/api/email/check-verification`,
+			`https://dissertation-project-backend-b9bee012d5f1.herokuapp.com/api/email/check-verification`,
 			{
 				method: "GET",
 				headers: {
@@ -117,8 +120,8 @@ export const checkVerificationStatus = async () => {
 			throw new Error(`HTTP error! status: ${response.status}`);
 		}
 
-		const isVerified = await response.json();
-		return isVerified;
+		// const isVerified = await response.json();
+		return await response.json();
 	} catch (error) {
 		console.error("Error checking verification status:", error);
 		throw error;

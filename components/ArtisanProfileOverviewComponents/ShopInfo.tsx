@@ -31,7 +31,7 @@ export default function ShopInfo({ artisan }: { artisan: ArtisanProfile }) {
 								<img
 									src={
 										artisan.profilePicture
-											? `http://localhost:8080${artisan.profilePicture}`
+											? `https://dissertation-project-backend-b9bee012d5f1.herokuapp.com${artisan.profilePicture}`
 											: "/blacktee.jpg"
 									}
 									alt={artisan.storeName || "Artisan Profile Picture"}
@@ -52,7 +52,7 @@ export default function ShopInfo({ artisan }: { artisan: ArtisanProfile }) {
 								<img
 									src={
 										artisan.profilePicture
-											? `http://localhost:8080${artisan.profilePicture}`
+											? `https://dissertation-project-backend-b9bee012d5f1.herokuapp.com${artisan.profilePicture}`
 											: "/blacktee.jpg"
 									}
 									alt={artisan.storeName || "Artisan Profile Picture"}

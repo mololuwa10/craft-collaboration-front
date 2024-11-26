@@ -25,7 +25,7 @@ const ChatInterface = ({
 	useEffect(() => {
 		const fetchMessageHistory = async () => {
 			try {
-				let url = `http://localhost:8080/api/messages/history/${currentUserId}?otherUserId=${artisanId}`;
+				let url = `https://dissertation-project-backend-b9bee012d5f1.herokuapp.com/api/messages/history/${currentUserId}?otherUserId=${artisanId}`;
 				if (productId) {
 					url += `&productId=${productId}`;
 				}
