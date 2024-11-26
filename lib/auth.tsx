@@ -13,11 +13,14 @@ export const useLogin = () => {
 	const login = useCallback(
 		async (username: string, password: string) => {
 			try {
-				const response = await fetch("http://localhost:8080/api/auth/login", {
-					method: "POST",
-					headers: { "Content-Type": "application/json" },
-					body: JSON.stringify({ username, password }),
-				});
+				const response = await fetch(
+					"https://dissertation-project-backend-b9bee012d5f1.herokuapp.com/api/auth/login",
+					{
+						method: "POST",
+						headers: { "Content-Type": "application/json" },
+						body: JSON.stringify({ username, password }),
+					}
+				);
 
 				if (response.status === 200) {
 					const data = await response.json();
