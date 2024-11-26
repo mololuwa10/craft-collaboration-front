@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable @next/next/no-img-element */
 
 "use client";
@@ -46,7 +48,8 @@ const SidebarItem = ({ title, count }: { title: any; count: any }) => {
 	return (
 		<a
 			href="#"
-			className="flex items-center justify-between px-4 py-2 text-gray-700 rounded-md hover:bg-gray-100">
+			className="flex items-center justify-between px-4 py-2 text-gray-700 rounded-md hover:bg-gray-100"
+		>
 			<span className="font-medium">{title}</span>
 			{count > 0 && (
 				<span className="text-xs font-semibold text-white bg-gray-800 rounded-full px-2 py-0.5">
@@ -74,7 +77,7 @@ const MessageInbox = () => {
 			try {
 				const fetchedConversations = await getAllConversations();
 				let totalCount = 0;
-				let totalUnreadCount = 0;
+				// let totalUnreadCount = 0;
 
 				if (userDetails) {
 					const currentUserId = userDetails.user.userId;
@@ -186,10 +189,12 @@ const MessageInbox = () => {
 							return (
 								<li
 									key={conversation.otherParty.userId}
-									className="border-b last:border-b-0 border-gray-200">
+									className="border-b last:border-b-0 border-gray-200"
+								>
 									<a
 										href="#"
-										className="flex items-center p-4 hover:bg-gray-50">
+										className="flex items-center p-4 hover:bg-gray-50"
+									>
 										<img
 											src={
 												conversation.otherParty.avatar ||

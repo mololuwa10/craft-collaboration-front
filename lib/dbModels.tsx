@@ -1,6 +1,7 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 
-import React, { useState, useEffect, useCallback, SetStateAction } from "react";
+import React, { useState, useEffect, SetStateAction } from "react";
 
 export interface ArtisanProfile {
 	artisanId: number;
@@ -918,8 +919,9 @@ export const GetUserAddresses = () => {
 };
 
 // Get top artisans
-export const GetTopArtisans = async () => {
-	const [topArtisans, setTopArtisans] = React.useState<ArtisanProfile[]>([]);
+export const useGetTopArtisans = () => {
+	const [topArtisans, setTopArtisans] = useState<ArtisanProfile[]>([]);
+
 	useEffect(() => {
 		const fetchTopArtisans = async () => {
 			try {

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable @next/next/no-img-element */
 "use client";
 
@@ -15,14 +16,15 @@ import { fetchShoppingCart } from "@/lib/dbModels";
 import SearchBar from "./SearchBar";
 import { FormattedMessage } from "react-intl";
 import { checkVerificationStatus, useFetchUserInfo } from "@/lib/data";
+import Link from "next/link";
 
 export default function Header() {
-	const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+	// const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 	const [cartItemCount, setCartItemCount] = useState(0);
 	const router = useRouter();
 	const [isVerified, setIsVerified] = useState(false);
 
-	const { isLoggedIn, userDetails, userRole } = useFetchUserInfo();
+	const { isLoggedIn } = useFetchUserInfo();
 
 	const handleShoppingCartClick = () => {
 		router.push("/ShoppingCart");
@@ -45,10 +47,10 @@ export default function Header() {
 		}
 	}, []);
 
-	const handleSearch = (query: any) => {
-		console.log("Searching for:", query);
-		// Perform the search action, such as querying an API
-	};
+	// const handleSearch = (query: any) => {
+	// 	console.log("Searching for:", query);
+	// 	// Perform the search action, such as querying an API
+	// };
 
 	useEffect(() => {
 		const verifyUser = async () => {
@@ -76,7 +78,8 @@ export default function Header() {
 				<header className="sm:flex sm:justify-end py-3 px-4 border-b">
 					<div
 						className="relative px-4 sm:px-6 lg:px-8 flex items-center
-				justify-end w-full">
+				justify-end w-full"
+					>
 						<SearchBar placeholder="Search..." />
 						<LanguageComboBox />
 						<LocationComboBox />
@@ -86,16 +89,18 @@ export default function Header() {
 					<Container>
 						<div
 							className="relative px-4 sm:px-6 lg:px-8 flex h-12 items-center
-				justify-between w-full">
+				justify-between w-full"
+						>
 							<div className="flex items-center ml-4">
-								<a
+								<Link
 									href="/"
-									className="ml-1 lg:ml-0 text-lg font-bold text-emerald-900">
+									className="ml-1 lg:ml-0 text-lg font-bold text-emerald-900"
+								>
 									<FormattedMessage
 										id="companyName"
 										defaultMessage="Craft Collaborations"
 									/>
-								</a>
+								</Link>
 							</div>
 							<nav className="mx-6 flex items-center space-x-4 lg:space-x-6 md:block white-text">
 								<NavigationMenuDemo />
@@ -107,7 +112,8 @@ export default function Header() {
 										size="icon"
 										aria-label="Shopping Cart"
 										onClick={handleShoppingCartClick}
-										className="relative">
+										className="relative"
+									>
 										<ShoppingCart className="h-6 w-6" />
 										{cartItemCount > 0 && (
 											<span className="absolute -top-[0.6rem] -right-2 flex h-6 w-6 items-center justify-center rounded-full bg-red-600 text-white text-xs">

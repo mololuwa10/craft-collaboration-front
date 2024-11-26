@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 
 import {
@@ -5,7 +6,6 @@ import {
 	TableBody,
 	TableCaption,
 	TableCell,
-	TableFooter,
 	TableHead,
 	TableHeader,
 	TableRow,
@@ -34,9 +34,14 @@ export default function Products() {
 		artisanProfile: any;
 	}
 
-	const { userDetails } = useFetchUserInfo();
+	const {
+		userDetails,
+	}: { userDetails: { artisanProfile?: { artisanId: string } } | null } =
+		useFetchUserInfo();
 	const [artisanProducts, setArtisanProducts] = useState([]);
-	const artisanId = userDetails?.artisanProfile?.artisanId ?? "";
+	const artisanId =
+		(userDetails as unknown as { artisanProfile?: { artisanId: string } })
+			?.artisanProfile?.artisanId ?? "";
 
 	useEffect(() => {
 		const fetchAndSetProducts = async () => {

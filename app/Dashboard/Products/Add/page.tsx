@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 
 import styles from "@/components/dashboardComponents/users/addUser/addUser.module.css";
@@ -202,7 +204,8 @@ const AddProductPage = () => {
 							name="categoryId"
 							id="categoryId"
 							value={categoryId || ""}
-							onChange={(event) => setCategoryId(event.target.value)}>
+							onChange={(event) => setCategoryId(event.target.value)}
+						>
 							<option value="" disabled selected>
 								Select Category
 							</option>
@@ -220,7 +223,8 @@ const AddProductPage = () => {
 							id="productDescription"
 							value={productDescription}
 							onChange={(event) => setProductDescription(event.target.value)}
-							placeholder="Product Description"></textarea>
+							placeholder="Product Description"
+						></textarea>
 						<input
 							type="file"
 							ref={fileInputRef}
@@ -247,7 +251,8 @@ const AddProductPage = () => {
 						<button
 							className="my-8"
 							type="button"
-							onClick={() => fileInputRef.current?.click()}>
+							onClick={() => fileInputRef.current?.click()}
+						>
 							Select Image
 						</button>
 

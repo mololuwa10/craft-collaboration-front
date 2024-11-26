@@ -1,7 +1,7 @@
 import styles from "@/components/dashboardComponents/dashboard.module.css";
 import Navbar from "@/components/dashboardComponents/navbar/navbar";
 import Footer from "@/components/dashboardComponents/footer/footer";
-import { useFetchUserInfo } from "@/lib/data";
+// import { useFetchUserInfo } from "@/lib/data";
 import ArtisanSidebar from "@/components/dashboardComponents/artisanSidebar/artisanSidebar";
 
 const Layout = ({ children }: { children: React.ReactNode }) => {

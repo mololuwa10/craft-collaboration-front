@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import Sidebar from "@/components/dashboardComponents/sidebar/sidebar";
 import styles from "@/components/dashboardComponents/dashboard.module.css";
 import Navbar from "@/components/dashboardComponents/navbar/navbar";
@@ -15,7 +16,8 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
 	return (
 		<div
 			className={styles.container}
-			style={{ backgroundColor: "var(--bg)", color: "var(--text)" }}>
+			style={{ backgroundColor: "var(--bg)", color: "var(--text)" }}
+		>
 			<div className={styles.menu}>
 				<Sidebar />
 			</div>

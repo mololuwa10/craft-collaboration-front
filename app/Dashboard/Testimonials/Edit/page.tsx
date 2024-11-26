@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable @typescript-eslint/no-unused-vars */
 "use client";
 /* eslint-disable @next/next/no-img-element */
 import styles from "@/components/dashboardComponents/users/singleUser/singleUser.module.css";

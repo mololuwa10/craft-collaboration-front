@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable @next/next/no-img-element */
 import {
 	NavigationMenu,
@@ -141,7 +143,8 @@ const OrderCard = ({ orderInfo, item }: { orderInfo: Order; item: any }) => {
 								<button
 									onClick={cancelOrder}
 									className="mt-2 text-blue-600 hover:text-blue-800 text-sm"
-									disabled={orderInfo.status === "DELIVERED"}>
+									disabled={orderInfo.status === "DELIVERED"}
+								>
 									{orderInfo.status === "DELIVERED"
 										? "Return or replace items"
 										: "Cancel Order"}

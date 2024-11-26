@@ -14,7 +14,6 @@ import {
 	MdLogout,
 	MdCategory,
 	MdReorder,
-	MdContacts,
 	MdEmail,
 	MdMessage,
 } from "react-icons/md";

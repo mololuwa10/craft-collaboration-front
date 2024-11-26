@@ -2,7 +2,7 @@
 
 import React, { createContext, useState, useEffect, ReactNode } from "react";
 import { I18nProvider } from "./i18n";
-import cookie from "cookie";
+// import cookie from "cookie";
 
 interface LanguageContextProps {
 	currentLanguage: string;

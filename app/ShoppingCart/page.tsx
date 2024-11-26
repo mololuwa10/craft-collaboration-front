@@ -1,4 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
+/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable @typescript-eslint/no-unused-vars */
 "use client";
 
 import Footer from "@/components/layoutComponents/Footer";
@@ -117,7 +119,8 @@ const CartItem = ({
 				<select
 					className="border-gray-300 rounded"
 					value={item.quantity}
-					onChange={handleQuantityChange}>
+					onChange={handleQuantityChange}
+				>
 					{quantityOptions.map((quantity) => (
 						<option key={quantity} value={quantity}>
 							{quantity}
@@ -129,7 +132,8 @@ const CartItem = ({
 			<div>
 				<button
 					onClick={handleRemoveClick}
-					className="text-gray-500 hover:text-gray-700">
+					className="text-gray-500 hover:text-gray-700"
+				>
 					<X />
 				</button>
 			</div>
@@ -219,7 +223,8 @@ const OrderSummary = ({ cartItems }: { cartItems: Item[] }) => {
 			</div>
 			<button
 				className="w-full bg-gray-800 text-white py-2 rounded hover:bg-gray-900 mt-3"
-				onClick={handelCheckoutClick}>
+				onClick={handelCheckoutClick}
+			>
 				Checkout
 			</button>
 		</div>

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { registerUser } from "@/lib/auth";
 import styles from "@/components/dashboardComponents/users/addUser/addUser.module.css";
 import { toast, ToastContainer } from "react-toastify";

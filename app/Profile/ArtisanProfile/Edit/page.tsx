@@ -1,3 +1,6 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable @typescript-eslint/no-unused-vars */
+
 "use client";
 
 import { LanguageProvider } from "@/app/LanguageContext";
@@ -434,7 +437,8 @@ export default function EditArtisanPage() {
 									</div>
 									<button
 										className="mb-5 ml-3 mt-4 mx-auto text-sm px-10 py-3 bg-black rounded-full hover:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-black text-white"
-										type="submit">
+										type="submit"
+									>
 										Save
 									</button>
 								</>

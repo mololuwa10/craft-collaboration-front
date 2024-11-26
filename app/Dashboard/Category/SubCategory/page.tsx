@@ -1,3 +1,6 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable @typescript-eslint/no-unused-vars */
+
 "use client";
 
 import { useFetchSubcategories, useFetchCategoryById } from "@/lib/dbModels";
@@ -73,7 +76,8 @@ export default function SubCategory() {
 					href={{
 						pathname: "/Dashboard/Category/SubCategory/Add",
 						query: { categoryId: categoryId },
-					}}>
+					}}
+				>
 					<Button size={"lg"} className="my-4">
 						+ Add Sub Category
 					</Button>
@@ -129,7 +133,8 @@ export default function SubCategory() {
 											<>
 												<Button
 													// onClick={() => handleSaveEdit(category.value)}
-													className="mr-2 mb-2 flex">
+													className="mr-2 mb-2 flex"
+												>
 													Save
 												</Button>
 												<Button onClick={() => setEditingCategoryId(null)}>
@@ -143,13 +148,15 @@ export default function SubCategory() {
 													setNewCategoryName(category.label);
 													setNewCategoryDescription(category.description);
 												}}
-												className="mr-2 mb-2 flex">
+												className="mr-2 mb-2 flex"
+											>
 												Edit
 											</Button>
 										)}
 										<Button
 											// onClick={() => handleDelete(category.value)}
-											className="hover:bg-gray-700">
+											className="hover:bg-gray-700"
+										>
 											Delete
 										</Button>
 									</div>

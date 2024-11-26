@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable @next/next/no-img-element */
 "use client";
 import { useFetchUserInfo } from "@/lib/data";
@@ -40,7 +41,7 @@ interface Conversation {
 }
 
 export default function Messages() {
-	const [users, setUsers] = useState({});
+	// const [users, setUsers] = useState({});
 	const [selectedUserId, setSelectedUserId] = useState(null);
 	const [messages, setMessages] = useState<
 		{
@@ -55,16 +56,18 @@ export default function Messages() {
 
 	const [conversations, setConversations] = useState<Conversation[]>([]);
 	const [loading, setLoading] = useState(false);
-	const [error, setError] = useState(null);
+	const [error, setError] = useState<string | null>(null);
 
-	const { userDetails } = useFetchUserInfo();
+	const { userDetails } = useFetchUserInfo() as {
+		userDetails: { user: User } | null;
+	};
 	const [userId, setUserId] = useState<string | null>(null);
 
 	const [inputValue, setInputValue] = useState("");
 
 	useEffect(() => {
 		if (userDetails && userDetails.user) {
-			setUserId(userDetails.user.userId);
+			setUserId(userDetails.user.userId.toString());
 		}
 	}, [userDetails]);
 
@@ -91,7 +94,11 @@ export default function Messages() {
 				setConversations(fetchedConversations);
 				setLoading(false);
 			} catch (error) {
-				setError(error.message);
+				if (error instanceof Error) {
+					setError(error.message);
+				} else {
+					setError(String(error));
+				}
 				setLoading(false);
 			}
 		};
@@ -136,10 +143,10 @@ export default function Messages() {
 				const response = await fetch(
 					`http://localhost:8080/api/messages/history/${userId}?otherUserId=${otherUserId}`
 				);
-								
+
 				if (!response.ok) {
 					throw new Error("Failed to fetch messages");
-				};
+				}
 				const data = await response.json();
 				setMessages(data);
 			} catch (error) {
@@ -212,7 +219,8 @@ export default function Messages() {
 										}`}
 										onClick={() =>
 											handleUserClick(conversation.otherParty.userId)
-										}>
+										}
+									>
 										<img
 											src={
 												conversation.otherParty.avatar ||
@@ -278,9 +286,11 @@ export default function Messages() {
 									return (
 										<div
 											key={index}
-											className={`flex py-2 ${messageAlignment}`}>
+											className={`flex py-2 ${messageAlignment}`}
+										>
 											<div
-												className={`rounded-lg p-3 mr-3 shadow ${messageBackground}`}>
+												className={`rounded-lg p-3 mr-3 shadow ${messageBackground}`}
+											>
 												{message.type === "text" && <p>{message.content}</p>}
 												{message.type === "image" && (
 													<img

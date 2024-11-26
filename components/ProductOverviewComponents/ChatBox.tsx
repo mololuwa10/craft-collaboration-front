@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { useEffect, useState } from "react";
 import ChatInterface from "./ChatInterface";
 import { useFetchUserInfo } from "@/lib/data";

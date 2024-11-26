@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import SockJS from "sockjs-client";
 import { Client } from "@stomp/stompjs";
 

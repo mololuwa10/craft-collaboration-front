@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { useEffect, useState } from "react";
 import ChatMessage from "./ChatMessage";
 import {
@@ -102,7 +103,8 @@ const ChatInterface = ({
 			</div>
 			<form
 				onSubmit={handleSendMessage}
-				className="flex-shrink-0 border-t-2 p-4">
+				className="flex-shrink-0 border-t-2 p-4"
+			>
 				<input
 					type="text"
 					value={inputValue}

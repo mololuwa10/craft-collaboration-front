@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable react/no-unescaped-entities */
 /* eslint-disable @next/next/no-img-element */
 "use client";
@@ -23,7 +24,7 @@ const AddProductPage = () => {
 	const [categoryId, setCategoryId] = useState<string | number | null>(null);
 	const [error, setError] = useState("");
 	const [loading, setLoading] = useState(false);
-	const [selectedImages, setSelectedImages] = useState<File[]>([]);
+	// const [selectedImages, setSelectedImages] = useState<File[]>([]);
 	const [previewImages, setPreviewImages] = useState<string[]>([]);
 
 	interface Category {
@@ -157,11 +158,11 @@ const AddProductPage = () => {
 	}, [previewImages]);
 
 	// Function to open file dialog
-	const handleSelectImageClick = () => {
-		if (fileInputRef.current) {
-			fileInputRef.current.click();
-		}
-	};
+	// const handleSelectImageClick = () => {
+	// 	if (fileInputRef.current) {
+	// 		fileInputRef.current.click();
+	// 	}
+	// };
 
 	const AttributeInput = ({
 		attribute,
@@ -182,7 +183,7 @@ const AddProductPage = () => {
 		});
 
 		// Function to toggle individual tooltips
-		const toggleTooltip = (tooltip: any) => {
+		const toggleTooltip = (tooltip: keyof typeof tooltips) => {
 			setTooltips((prev) => ({
 				...prev,
 				[tooltip]: !prev[tooltip],
@@ -206,7 +207,8 @@ const AddProductPage = () => {
 				<Tooltip
 					placement="bottom"
 					isOpen={tooltips.keyTooltip}
-					target={`KeyTooltip-${index}`}>
+					target={`KeyTooltip-${index}`}
+				>
 					<h2 className="text-white">
 						Enter the attribute type here, e.g., 'Size'
 					</h2>
@@ -227,7 +229,8 @@ const AddProductPage = () => {
 				<Tooltip
 					placement="bottom"
 					isOpen={tooltips.valueTooltip}
-					target={`ValueTooltip-${index}`}>
+					target={`ValueTooltip-${index}`}
+				>
 					<h2 className="text-white">
 						Enter the attribute detail here, e.g., 'Medium' for Size
 					</h2>
@@ -241,13 +244,15 @@ const AddProductPage = () => {
 					className="tooltip-icon cursor-pointer"
 					id={`ExampleTooltip-${index}`}
 					onMouseEnter={() => toggleTooltip("exampleTooltip")}
-					onMouseLeave={() => toggleTooltip("exampleTooltip")}>
+					onMouseLeave={() => toggleTooltip("exampleTooltip")}
+				>
 					?
 				</span>
 				<Tooltip
 					placement="bottom"
 					isOpen={tooltips.exampleTooltip}
-					target={`ExampleTooltip-${index}`}>
+					target={`ExampleTooltip-${index}`}
+				>
 					<h2 className="text-white">
 						Example: For 'Size', the values can be 'Small', 'Medium', or
 						'Large'. Make sure to use the same 'Key' for sizes.
@@ -328,7 +333,8 @@ const AddProductPage = () => {
 							name="categoryId"
 							id="categoryId"
 							value={categoryId || ""}
-							onChange={(event) => setCategoryId(event.target.value)}>
+							onChange={(event) => setCategoryId(event.target.value)}
+						>
 							<option value="" disabled selected>
 								Select Category
 							</option>
@@ -346,7 +352,8 @@ const AddProductPage = () => {
 							id="productDescription"
 							value={productDescription}
 							onChange={(event) => setProductDescription(event.target.value)}
-							placeholder="Product Description"></textarea>
+							placeholder="Product Description"
+						></textarea>
 						<input
 							type="file"
 							ref={fileInputRef}
@@ -373,7 +380,8 @@ const AddProductPage = () => {
 						<button
 							className="my-8"
 							type="button"
-							onClick={() => fileInputRef.current?.click()}>
+							onClick={() => fileInputRef.current?.click()}
+						>
 							Select Image
 						</button>
 

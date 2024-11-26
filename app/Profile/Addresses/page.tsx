@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable @typescript-eslint/no-unused-vars */
 "use client";
 
 import React, { useState, useEffect } from "react";
@@ -66,7 +68,8 @@ export default function Addresses() {
 						{/* Add Address card */}
 						<Link
 							href={"/Profile/Addresses/Add"}
-							className="border-2 border-dashed border-gray-300 rounded-lg flex justify-center items-center">
+							className="border-2 border-dashed border-gray-300 rounded-lg flex justify-center items-center"
+						>
 							<div>
 								<button className="p-2 text-gray-700 hover:text-gray-900 flex">
 									<Plus />

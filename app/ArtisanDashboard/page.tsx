@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 import Card from "@/components/dashboardComponents/card/card";
 // import { cards } from "@/lib/data";

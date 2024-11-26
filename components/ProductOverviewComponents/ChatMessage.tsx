@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 const ChatMessage = ({ message, isUser }: { message: any; isUser: any }) => {
 	const messageClass = isUser
 		? "bg-gray-700 text-white self-end"

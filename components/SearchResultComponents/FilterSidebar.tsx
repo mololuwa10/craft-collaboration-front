@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable @typescript-eslint/no-unused-vars */
 "use client";
 
 import {
@@ -130,7 +132,8 @@ const FilterSidebar = ({
 						{/* clear all button */}
 						<button
 							type="button"
-							className="text-md mb-6 text-gray-900 underline underline-offset-4">
+							className="text-md mb-6 text-gray-900 underline underline-offset-4"
+						>
 							Clear All
 						</button>
 					</div>
@@ -148,7 +151,8 @@ const FilterSidebar = ({
 										viewBox="0 0 24 24"
 										strokeWidth="1.5"
 										stroke="currentColor"
-										className="h-4 w-4">
+										className="h-4 w-4"
+									>
 										<path
 											strokeLinecap="round"
 											strokeLinejoin="round"
@@ -168,7 +172,8 @@ const FilterSidebar = ({
 									<button
 										type="button"
 										className="text-sm text-gray-900 underline underline-offset-4"
-										onClick={handleResetCategories}>
+										onClick={handleResetCategories}
+									>
 										Reset
 									</button>
 								</header>
@@ -178,7 +183,8 @@ const FilterSidebar = ({
 										<li key={category.value}>
 											<label
 												htmlFor={`Filter${category.label}`}
-												className="inline-flex items-center gap-2">
+												className="inline-flex items-center gap-2"
+											>
 												<input
 													type="checkbox"
 													id={`Filter${category.label}`}
@@ -209,7 +215,8 @@ const FilterSidebar = ({
 										viewBox="0 0 24 24"
 										strokeWidth="1.5"
 										stroke="currentColor"
-										className="h-4 w-4">
+										className="h-4 w-4"
+									>
 										<path
 											strokeLinecap="round"
 											strokeLinejoin="round"
@@ -229,7 +236,8 @@ const FilterSidebar = ({
 									<button
 										type="button"
 										className="text-sm text-gray-900 underline underline-offset-4"
-										onClick={resetArtisanSelection}>
+										onClick={resetArtisanSelection}
+									>
 										Reset
 									</button>
 								</header>
@@ -239,7 +247,8 @@ const FilterSidebar = ({
 										<li key={artisan.artisanId}>
 											<label
 												htmlFor={`artisan-${artisan.artisanId}`}
-												className="inline-flex items-center gap-2">
+												className="inline-flex items-center gap-2"
+											>
 												<input
 													type="checkbox"
 													id={`artisan-${artisan.artisanId}`}
@@ -271,7 +280,8 @@ const FilterSidebar = ({
 										viewBox="0 0 24 24"
 										strokeWidth="1.5"
 										stroke="currentColor"
-										className="h-4 w-4">
+										className="h-4 w-4"
+									>
 										<path
 											strokeLinecap="round"
 											strokeLinejoin="round"
@@ -287,7 +297,8 @@ const FilterSidebar = ({
 
 									<button
 										type="button"
-										className="text-sm text-gray-900 underline underline-offset-4">
+										className="text-sm text-gray-900 underline underline-offset-4"
+									>
 										Reset
 									</button>
 								</header>
@@ -296,7 +307,8 @@ const FilterSidebar = ({
 									<li>
 										<label
 											htmlFor="FilterInStock"
-											className="inline-flex items-center gap-2">
+											className="inline-flex items-center gap-2"
+										>
 											<input
 												type="checkbox"
 												id="FilterInStock"
@@ -312,7 +324,8 @@ const FilterSidebar = ({
 									<li>
 										<label
 											htmlFor="FilterOutOfStock"
-											className="inline-flex items-center gap-2">
+											className="inline-flex items-center gap-2"
+										>
 											<input
 												type="checkbox"
 												id="FilterOutOfStock"
@@ -341,7 +354,8 @@ const FilterSidebar = ({
 										viewBox="0 0 24 24"
 										strokeWidth="1.5"
 										stroke="currentColor"
-										className="h-4 w-4">
+										className="h-4 w-4"
+									>
 										<path
 											strokeLinecap="round"
 											strokeLinejoin="round"
@@ -360,7 +374,8 @@ const FilterSidebar = ({
 
 									<button
 										type="button"
-										className="text-sm text-gray-900 underline underline-offset-4">
+										className="text-sm text-gray-900 underline underline-offset-4"
+									>
 										Reset
 									</button>
 								</header>
@@ -369,7 +384,8 @@ const FilterSidebar = ({
 									<div className="flex justify-between gap-4">
 										<label
 											htmlFor="FilterPriceFrom"
-											className="flex items-center gap-2">
+											className="flex items-center gap-2"
+										>
 											<span className="text-sm text-gray-600">$</span>
 
 											<input
@@ -382,7 +398,8 @@ const FilterSidebar = ({
 
 										<label
 											htmlFor="FilterPriceTo"
-											className="flex items-center gap-2">
+											className="flex items-center gap-2"
+										>
 											<span className="text-sm text-gray-600">$</span>
 
 											<input
@@ -412,7 +429,8 @@ const FilterSidebar = ({
 										viewBox="0 0 24 24"
 										strokeWidth="1.5"
 										stroke="currentColor"
-										className="h-4 w-4">
+										className="h-4 w-4"
+									>
 										<path
 											strokeLinecap="round"
 											strokeLinejoin="round"
@@ -428,7 +446,8 @@ const FilterSidebar = ({
 
 									<button
 										type="button"
-										className="text-sm text-gray-900 underline underline-offset-4">
+										className="text-sm text-gray-900 underline underline-offset-4"
+									>
 										Reset
 									</button>
 								</header>
@@ -437,7 +456,8 @@ const FilterSidebar = ({
 									<li>
 										<label
 											htmlFor="FilterRed"
-											className="inline-flex items-center gap-2">
+											className="inline-flex items-center gap-2"
+										>
 											<input
 												type="checkbox"
 												id="FilterRed"
@@ -454,7 +474,8 @@ const FilterSidebar = ({
 									<li>
 										<label
 											htmlFor="FilterBlue"
-											className="inline-flex items-center gap-2">
+											className="inline-flex items-center gap-2"
+										>
 											<input
 												type="checkbox"
 												id="FilterBlue"
@@ -471,7 +492,8 @@ const FilterSidebar = ({
 									<li>
 										<label
 											htmlFor="FilterGreen"
-											className="inline-flex items-center gap-2">
+											className="inline-flex items-center gap-2"
+										>
 											<input
 												type="checkbox"
 												id="FilterGreen"
@@ -488,7 +510,8 @@ const FilterSidebar = ({
 									<li>
 										<label
 											htmlFor="FilterOrange"
-											className="inline-flex items-center gap-2">
+											className="inline-flex items-center gap-2"
+										>
 											<input
 												type="checkbox"
 												id="FilterOrange"
@@ -505,7 +528,8 @@ const FilterSidebar = ({
 									<li>
 										<label
 											htmlFor="FilterPurple"
-											className="inline-flex items-center gap-2">
+											className="inline-flex items-center gap-2"
+										>
 											<input
 												type="checkbox"
 												id="FilterPurple"
@@ -522,7 +546,8 @@ const FilterSidebar = ({
 									<li>
 										<label
 											htmlFor="FilterTeal"
-											className="inline-flex items-center gap-2">
+											className="inline-flex items-center gap-2"
+										>
 											<input
 												type="checkbox"
 												id="FilterTeal"
@@ -551,7 +576,8 @@ const FilterSidebar = ({
 										viewBox="0 0 24 24"
 										strokeWidth="1.5"
 										stroke="currentColor"
-										className="h-4 w-4">
+										className="h-4 w-4"
+									>
 										<path
 											strokeLinecap="round"
 											strokeLinejoin="round"
@@ -567,7 +593,8 @@ const FilterSidebar = ({
 
 									<button
 										type="button"
-										className="text-sm text-gray-900 underline underline-offset-4">
+										className="text-sm text-gray-900 underline underline-offset-4"
+									>
 										Reset
 									</button>
 								</header>
@@ -576,7 +603,8 @@ const FilterSidebar = ({
 									<li>
 										<label
 											htmlFor="FilterRed"
-											className="inline-flex items-center gap-2">
+											className="inline-flex items-center gap-2"
+										>
 											<input
 												type="checkbox"
 												id="FilterRed"
@@ -593,7 +621,8 @@ const FilterSidebar = ({
 									<li>
 										<label
 											htmlFor="FilterBlue"
-											className="inline-flex items-center gap-2">
+											className="inline-flex items-center gap-2"
+										>
 											<input
 												type="checkbox"
 												id="FilterBlue"
@@ -610,7 +639,8 @@ const FilterSidebar = ({
 									<li>
 										<label
 											htmlFor="FilterGreen"
-											className="inline-flex items-center gap-2">
+											className="inline-flex items-center gap-2"
+										>
 											<input
 												type="checkbox"
 												id="FilterGreen"
@@ -627,7 +657,8 @@ const FilterSidebar = ({
 									<li>
 										<label
 											htmlFor="FilterOrange"
-											className="inline-flex items-center gap-2">
+											className="inline-flex items-center gap-2"
+										>
 											<input
 												type="checkbox"
 												id="FilterOrange"
@@ -644,7 +675,8 @@ const FilterSidebar = ({
 									<li>
 										<label
 											htmlFor="FilterPurple"
-											className="inline-flex items-center gap-2">
+											className="inline-flex items-center gap-2"
+										>
 											<input
 												type="checkbox"
 												id="FilterPurple"
@@ -661,7 +693,8 @@ const FilterSidebar = ({
 									<li>
 										<label
 											htmlFor="FilterTeal"
-											className="inline-flex items-center gap-2">
+											className="inline-flex items-center gap-2"
+										>
 											<input
 												type="checkbox"
 												id="FilterTeal"
@@ -690,7 +723,8 @@ const FilterSidebar = ({
 										viewBox="0 0 24 24"
 										strokeWidth="1.5"
 										stroke="currentColor"
-										className="h-4 w-4">
+										className="h-4 w-4"
+									>
 										<path
 											strokeLinecap="round"
 											strokeLinejoin="round"
@@ -706,7 +740,8 @@ const FilterSidebar = ({
 
 									<button
 										type="button"
-										className="text-sm text-gray-900 underline underline-offset-4">
+										className="text-sm text-gray-900 underline underline-offset-4"
+									>
 										Reset
 									</button>
 								</header>
@@ -715,7 +750,8 @@ const FilterSidebar = ({
 									<li>
 										<label
 											htmlFor="FilterRed"
-											className="inline-flex items-center gap-2">
+											className="inline-flex items-center gap-2"
+										>
 											<input
 												type="checkbox"
 												id="FilterRed"
@@ -732,7 +768,8 @@ const FilterSidebar = ({
 									<li>
 										<label
 											htmlFor="FilterBlue"
-											className="inline-flex items-center gap-2">
+											className="inline-flex items-center gap-2"
+										>
 											<input
 												type="checkbox"
 												id="FilterBlue"
@@ -749,7 +786,8 @@ const FilterSidebar = ({
 									<li>
 										<label
 											htmlFor="FilterGreen"
-											className="inline-flex items-center gap-2">
+											className="inline-flex items-center gap-2"
+										>
 											<input
 												type="checkbox"
 												id="FilterGreen"
@@ -766,7 +804,8 @@ const FilterSidebar = ({
 									<li>
 										<label
 											htmlFor="FilterOrange"
-											className="inline-flex items-center gap-2">
+											className="inline-flex items-center gap-2"
+										>
 											<input
 												type="checkbox"
 												id="FilterOrange"
@@ -783,7 +822,8 @@ const FilterSidebar = ({
 									<li>
 										<label
 											htmlFor="FilterPurple"
-											className="inline-flex items-center gap-2">
+											className="inline-flex items-center gap-2"
+										>
 											<input
 												type="checkbox"
 												id="FilterPurple"
@@ -800,7 +840,8 @@ const FilterSidebar = ({
 									<li>
 										<label
 											htmlFor="FilterTeal"
-											className="inline-flex items-center gap-2">
+											className="inline-flex items-center gap-2"
+										>
 											<input
 												type="checkbox"
 												id="FilterTeal"

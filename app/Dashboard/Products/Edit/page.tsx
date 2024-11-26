@@ -1,3 +1,6 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable @typescript-eslint/no-unused-vars */
+
 "use client";
 
 import styles from "@/components/dashboardComponents/users/singleUser/singleUser.module.css";
@@ -302,7 +305,8 @@ export default function EditProduct() {
 									<button
 										type="button"
 										className="remove-attribute-button"
-										onClick={() => handleRemoveAttributeField(index)}>
+										onClick={() => handleRemoveAttributeField(index)}
+									>
 										Remove
 									</button>
 								</div>
@@ -310,7 +314,8 @@ export default function EditProduct() {
 							<button
 								type="button"
 								className="add-attribute-button"
-								onClick={handleAddAttributeField}>
+								onClick={handleAddAttributeField}
+							>
 								Add Attribute
 							</button>
 
@@ -319,7 +324,8 @@ export default function EditProduct() {
 								name="category"
 								id="category"
 								value={selectedCategoryId}
-								onChange={(e) => setSelectedCategoryId(e.target.value)}>
+								onChange={(e) => setSelectedCategoryId(e.target.value)}
+							>
 								{categories.map((category) => (
 									<option key={category.value} value={category.value}>
 										{category.label}
@@ -331,12 +337,14 @@ export default function EditProduct() {
 								name="artisan"
 								id="artisan"
 								value={selectedArtisanId}
-								onChange={(e) => setSelectedArtisanId(e.target.value)}>
+								onChange={(e) => setSelectedArtisanId(e.target.value)}
+							>
 								{allArtisans &&
 									allArtisans.map((artisan) => (
 										<option
 											key={artisan.artisanId}
-											value={artisan.artisanId.toString()}>
+											value={artisan.artisanId.toString()}
+										>
 											{artisan.artisanId} - {artisan.artisan.firstname}{" "}
 											{artisan.artisan.lastname}
 										</option>

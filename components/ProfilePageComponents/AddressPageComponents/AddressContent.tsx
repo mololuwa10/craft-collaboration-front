@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 "use client";
 
 import { deleteAddress, setDefaultAddress } from "@/lib/auth";
@@ -78,7 +79,8 @@ const AddressContent = ({
 						href={{
 							pathname: "/Profile/Addresses/Edit",
 							query: { addressId: address.addressId },
-						}}>
+						}}
+					>
 						<button className="text-blue-500 hover:text-blue-700 text-sm">
 							Edit
 						</button>
@@ -86,7 +88,8 @@ const AddressContent = ({
 					<span className="text-gray-300 mx-1">|</span>
 					<button
 						className="text-red-500 hover:text-red-700 text-sm"
-						onClick={handleRemove}>
+						onClick={handleRemove}
+					>
 						Remove
 					</button>
 					{!isDefault && (
@@ -95,7 +98,8 @@ const AddressContent = ({
 							<button
 								className="text-green-500 hover:text-green-700 text-sm"
 								onClick={handleSetDefault}
-								disabled={isSettingDefault}>
+								disabled={isSettingDefault}
+							>
 								Set as Default
 							</button>
 						</>

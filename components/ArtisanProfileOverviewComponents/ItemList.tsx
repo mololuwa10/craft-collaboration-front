@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable @next/next/no-img-element */
 "use client";
 
@@ -143,7 +145,8 @@ const ItemList = ({ artisan }: { artisan: ArtisanProfile }) => {
 										<svg
 											className="w-6 h-6 text-gray-800"
 											fill="none"
-											stroke="currentColor">
+											stroke="currentColor"
+										>
 											<Heart />
 										</svg>
 									</button>
@@ -155,7 +158,8 @@ const ItemList = ({ artisan }: { artisan: ArtisanProfile }) => {
 												href={{
 													pathname: "/ProductOverview",
 													query: { productId: product.productId },
-												}}>
+												}}
+											>
 												<span aria-hidden="true" className="absolute inset-0" />
 												{product.productName}
 											</Link>
@@ -193,7 +197,8 @@ const ItemList = ({ artisan }: { artisan: ArtisanProfile }) => {
 								className="w-32 h-32 mx-auto"
 								fill="none"
 								viewBox="0 0 24 24"
-								stroke="currentColor">
+								stroke="currentColor"
+							>
 								<path
 									strokeLinecap="round"
 									strokeLinejoin="round"

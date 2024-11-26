@@ -3,7 +3,10 @@
 "use client";
 
 import { Instagram, Twitter } from "lucide-react";
-import { FormattedMessage, useIntl } from "react-intl";
+import Link from "next/link";
+import { FormattedMessage } from "react-intl";
+import useIntl from "react-intl/src/components/useIntl";
+// import useIntl from "react-intl/src/components/useIntl";
 
 export default function Footer() {
 	const intl = useIntl();
@@ -32,13 +35,15 @@ export default function Footer() {
 										href="/"
 										rel="noreferrer"
 										target="_blank"
-										className="text-teal-700 transition hover:text-teal-700/75">
+										className="text-teal-700 transition hover:text-teal-700/75"
+									>
 										<span className="sr-only">Facebook</span>
 										<svg
 											className="h-6 w-6"
 											fill="currentColor"
 											viewBox="0 0 24 24"
-											aria-hidden="true">
+											aria-hidden="true"
+										>
 											<path
 												fillRule="evenodd"
 												d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"
@@ -53,7 +58,8 @@ export default function Footer() {
 										href="/"
 										rel="noreferrer"
 										target="_blank"
-										className="text-teal-700 transition hover:text-teal-700/75">
+										className="text-teal-700 transition hover:text-teal-700/75"
+									>
 										<span className="sr-only">Instagram</span>
 										<Instagram />
 									</a>
@@ -64,7 +70,8 @@ export default function Footer() {
 										href="/"
 										rel="noreferrer"
 										target="_blank"
-										className="text-teal-700 transition hover:text-teal-700/75">
+										className="text-teal-700 transition hover:text-teal-700/75"
+									>
 										<span className="sr-only">Twitter</span>
 										<Twitter />
 									</a>
@@ -81,20 +88,22 @@ export default function Footer() {
 
 								<ul className="mt-8 space-y-4 text-sm">
 									<li>
-										<a
+										<Link
 											className="text-gray-700 transition hover:text-gray-700/75"
-											href="/">
+											href="/"
+										>
 											<FormattedMessage
 												id="contactUs"
 												defaultMessage="Contact Us"
 											/>
-										</a>
+										</Link>
 									</li>
 
 									<li>
-										<a
+										<Link
 											className="text-gray-700 transition hover:text-gray-700/75"
-											href="/">
+											href="/"
+										>
 											{intl.formatMessage({
 												id: "aboutUs",
 												defaultMessage: "About Us",
@@ -103,30 +112,32 @@ export default function Footer() {
 												id="aboutUs"
 												defaultMessage="About Us"
 											/> */}
-										</a>
+										</Link>
 									</li>
 
 									<li>
-										<a
+										<Link
 											className="text-gray-700 transition hover:text-gray-700/75"
-											href="/">
+											href="/"
+										>
 											<FormattedMessage
 												id="privacyPolicy"
 												defaultMessage="Privacy Policy"
 											/>
-										</a>
+										</Link>
 									</li>
 
 									<li>
-										<a
+										<Link
 											className="text-gray-700 transition hover:text-gray-700/75"
-											href="/">
+											href="/"
+										>
 											{" "}
 											<FormattedMessage
 												id="sellerCentre"
 												defaultMessage="Seller Centre"
 											/>
-										</a>
+										</Link>
 									</li>
 								</ul>
 							</div>
@@ -141,67 +152,73 @@ export default function Footer() {
 
 								<ul className="mt-8 space-y-4 text-sm">
 									<li>
-										<a
+										<Link
 											className="text-gray-700 transition hover:text-gray-700/75"
-											href="/">
+											href="/"
+										>
 											<FormattedMessage
 												id="helpCentre"
 												defaultMessage="Help Centre"
 											/>
-										</a>
+										</Link>
 									</li>
 
 									<li>
-										<a
+										<Link
 											className="text-gray-700 transition hover:text-gray-700/75"
-											href="/">
+											href="/"
+										>
 											{" "}
 											<FormattedMessage
 												id="howToBuy"
 												defaultMessage="How To Buy"
 											/>
-										</a>
+										</Link>
 									</li>
 
 									<li>
-										<a
+										<Link
 											className="text-gray-700 transition hover:text-gray-700/75"
-											href="/">
+											href="/"
+										>
 											<FormattedMessage id="payment" defaultMessage="Payment" />
-										</a>
+										</Link>
 									</li>
 
 									<li>
-										<a
+										<Link
 											className="text-gray-700 transition hover:text-gray-700/75"
-											href="/">
+											href="/"
+										>
 											<FormattedMessage
 												id="shipping"
 												defaultMessage="Shipping"
 											/>
-										</a>
+										</Link>
 									</li>
 
 									<li>
-										<a
+										<Link
 											className="text-gray-700 transition hover:text-gray-700/75"
-											href="/">
+											href="/"
+										>
 											<FormattedMessage
 												id="returnRefund"
 												defaultMessage="Return & Refund"
 											/>
-										</a>
+										</Link>
 									</li>
 
 									<li>
-										<a
+										<Link
 											className="text-gray-700 transition hover:text-gray-700/75"
-											href="/">
+											href="/"
+										>
 											<FormattedMessage
 												id="warrantyPolicy"
 												defaultMessage="Warranty Policy"
 											/>
-										</a>
+										</Link>
 									</li>
 								</ul>
 							</div>
@@ -216,26 +233,29 @@ export default function Footer() {
 
 								<ul className="mt-8 space-y-4 text-sm">
 									<li>
-										<a
+										<Link
 											className="text-gray-700 transition hover:text-gray-700/75"
-											href="/">
+											href="/"
+										>
 											<FormattedMessage id="faqs" defaultMessage="FAQs" />
-										</a>
+										</Link>
 									</li>
 
 									<li>
-										<a
+										<Link
 											className="text-gray-700 transition hover:text-gray-700/75"
-											href="/">
+											href="/"
+										>
 											{" "}
 											<FormattedMessage id="support" defaultMessage="Support" />
-										</a>
+										</Link>
 									</li>
 
 									<li>
-										<a
+										<Link
 											className="group flex justify-center gap-1.5 ltr:sm:justify-start rtl:sm:justify-end"
-											href="/">
+											href="/"
+										>
 											<span className="text-gray-700 transition group-hover:text-gray-700/75">
 												<FormattedMessage
 													id="liveChat"
@@ -247,7 +267,7 @@ export default function Footer() {
 												<span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-teal-400 opacity-75"></span>
 												<span className="relative inline-flex h-2 w-2 rounded-full bg-teal-500"></span>
 											</span>
-										</a>
+										</Link>
 									</li>
 								</ul>
 							</div>
@@ -262,16 +282,18 @@ export default function Footer() {
 
 								<ul className="mt-8 space-y-4 text-sm">
 									<li>
-										<a
+										<Link
 											className="flex items-center justify-center gap-1.5 ltr:sm:justify-start rtl:sm:justify-end"
-											href="/">
+											href="/"
+										>
 											<svg
 												xmlns="http://www.w3.org/2000/svg"
 												className="h-5 w-5 shrink-0 text-gray-900"
 												fill="none"
 												viewBox="0 0 24 24"
 												stroke="currentColor"
-												strokeWidth="2">
+												strokeWidth="2"
+											>
 												<path
 													strokeLinecap="round"
 													strokeLinejoin="round"
@@ -280,20 +302,22 @@ export default function Footer() {
 											</svg>
 
 											<span className="flex-1 text-gray-700">john@doe.com</span>
-										</a>
+										</Link>
 									</li>
 
 									<li>
-										<a
+										<Link
 											className="flex items-center justify-center gap-1.5 ltr:sm:justify-start rtl:sm:justify-end"
-											href="/">
+											href="/"
+										>
 											<svg
 												xmlns="http://www.w3.org/2000/svg"
 												className="h-5 w-5 shrink-0 text-gray-900"
 												fill="none"
 												viewBox="0 0 24 24"
 												stroke="currentColor"
-												strokeWidth="2">
+												strokeWidth="2"
+											>
 												<path
 													strokeLinecap="round"
 													strokeLinejoin="round"
@@ -302,7 +326,7 @@ export default function Footer() {
 											</svg>
 
 											<span className="flex-1 text-gray-700">0123456789</span>
-										</a>
+										</Link>
 									</li>
 
 									<li className="flex items-start justify-center gap-1.5 ltr:sm:justify-start rtl:sm:justify-end">
@@ -312,7 +336,8 @@ export default function Footer() {
 											fill="none"
 											viewBox="0 0 24 24"
 											stroke="currentColor"
-											strokeWidth="2">
+											strokeWidth="2"
+										>
 											<path
 												strokeLinecap="round"
 												strokeLinejoin="round"
@@ -348,14 +373,15 @@ export default function Footer() {
 										defaultMessage="All rights reserved."
 									/>
 								</span>
-								<a
+								<Link
 									className="inline-block text-teal-600 underline transition hover:text-teal-600/75"
-									href="/">
+									href="/"
+								>
 									<FormattedMessage
 										id="termsConditions"
 										defaultMessage="Terms & Conditions"
 									/>
-								</a>
+								</Link>
 								<span>&middot;</span>
 							</p>
 

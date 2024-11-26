@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { useFetchUserInfo } from "@/lib/data";
 import { useState, useEffect } from "react";
 import { Button } from "../ui/button";
@@ -94,7 +96,8 @@ export default function AccountSettingsComponents() {
 					<div className="mb-4">
 						<label
 							htmlFor="username"
-							className="block text-gray-700 text-sm font-bold mb-2">
+							className="block text-gray-700 text-sm font-bold mb-2"
+						>
 							Username
 						</label>
 						<input
@@ -108,7 +111,8 @@ export default function AccountSettingsComponents() {
 					<div className="mb-4 relative">
 						<label
 							htmlFor="currentPassword"
-							className="block text-gray-700 text-sm font-bold mb-2">
+							className="block text-gray-700 text-sm font-bold mb-2"
+						>
 							Current Password
 						</label>
 						<input
@@ -121,7 +125,8 @@ export default function AccountSettingsComponents() {
 							type="button"
 							onClick={togglePasswordVisibility}
 							style={{ top: "26px", bottom: "0px", right: "0px" }}
-							className="absolute pr-3 flex items-center text-sm leading-5">
+							className="absolute pr-3 flex items-center text-sm leading-5"
+						>
 							{passwordShown ? (
 								<EyeOffIcon className="h-5 w-5 text-gray-700" />
 							) : (
@@ -133,7 +138,8 @@ export default function AccountSettingsComponents() {
 					<div className="mb-4 relative">
 						<label
 							htmlFor="newPassword"
-							className="block text-gray-700 text-sm font-bold mb-2">
+							className="block text-gray-700 text-sm font-bold mb-2"
+						>
 							New Password
 						</label>
 						<div className="flex items-center border rounded shadow appearance-none w-full">
@@ -148,7 +154,8 @@ export default function AccountSettingsComponents() {
 							<button
 								type="button"
 								onClick={toggleNewPasswordVisibility}
-								className="pr-3 flex items-center text-sm leading-5">
+								className="pr-3 flex items-center text-sm leading-5"
+							>
 								{newPasswordShown ? (
 									<EyeOffIcon className="h-5 w-5 text-gray-700" />
 								) : (

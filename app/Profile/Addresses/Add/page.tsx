@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable @typescript-eslint/no-unused-vars */
 "use client";
 
 import { LanguageProvider } from "@/app/LanguageContext";
@@ -209,7 +211,8 @@ export default function AddAddress() {
 
 								<button
 									className="mb-5 ml-3 mt-4 mx-auto text-sm px-10 py-3 bg-black rounded-full hover:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-black text-white"
-									type="submit">
+									type="submit"
+								>
 									Save
 								</button>
 							</>
@@ -240,7 +243,8 @@ const Select = ({
 			name={name}
 			value={value}
 			onChange={onChange}
-			className={`${className} block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-black focus:border-black sm:text-sm rounded-md`}>
+			className={`${className} block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-black focus:border-black sm:text-sm rounded-md`}
+		>
 			<option value="">Select a country</option>
 			{options.map((option) => (
 				<option key={option.isoCode} value={option.name}>

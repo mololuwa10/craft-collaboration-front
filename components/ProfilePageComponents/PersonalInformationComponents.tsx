@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { useFetchUserInfo } from "@/lib/data";
 import { useState, useEffect } from "react";
 import { Button } from "../ui/button";
@@ -85,7 +87,8 @@ export default function PersonalInformationComponents() {
 							<div className="mb-4">
 								<label
 									htmlFor="firstname"
-									className="block text-gray-700 text-sm font-bold mb-2">
+									className="block text-gray-700 text-sm font-bold mb-2"
+								>
 									First Name
 								</label>
 								<input
@@ -99,7 +102,8 @@ export default function PersonalInformationComponents() {
 							<div className="mb-4">
 								<label
 									htmlFor="lastname"
-									className="block text-gray-700 text-sm font-bold mb-2">
+									className="block text-gray-700 text-sm font-bold mb-2"
+								>
 									Last Name
 								</label>
 								<input
@@ -113,7 +117,8 @@ export default function PersonalInformationComponents() {
 							<div className="mb-4">
 								<label
 									htmlFor="email"
-									className="block text-gray-700 text-sm font-bold mb-2">
+									className="block text-gray-700 text-sm font-bold mb-2"
+								>
 									Email Address
 								</label>
 								<input
@@ -127,7 +132,8 @@ export default function PersonalInformationComponents() {
 							<div className="mb-4">
 								<label
 									htmlFor="phone"
-									className="block text-gray-700 text-sm font-bold mb-2">
+									className="block text-gray-700 text-sm font-bold mb-2"
+								>
 									Phone Number
 								</label>
 								<input
@@ -141,7 +147,8 @@ export default function PersonalInformationComponents() {
 							<div className="mb-4">
 								<label
 									htmlFor="address"
-									className="block text-gray-700 text-sm font-bold mb-2">
+									className="block text-gray-700 text-sm font-bold mb-2"
+								>
 									Address
 								</label>
 								<textarea

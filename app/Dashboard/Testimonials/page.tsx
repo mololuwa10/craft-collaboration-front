@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 "use client";
 
 import { useGetAllTestimonials } from "@/lib/dbModels";
@@ -73,7 +74,8 @@ export default function Testimonials() {
 												href={{
 													pathname: "/Dashboard/Testimonials/Edit",
 													query: { testimonialId: testimonial.testimonialId },
-												}}>
+												}}
+											>
 												<Button size={"lg"} className="mr-2 mb-2 flex">
 													Edit
 												</Button>
@@ -81,7 +83,8 @@ export default function Testimonials() {
 											<Button
 												size={"lg"}
 												// onClick={() => handleDelete(product.value)}
-												className="mr-2 mb-2 flex">
+												className="mr-2 mb-2 flex"
+											>
 												Delete
 											</Button>
 										</div>

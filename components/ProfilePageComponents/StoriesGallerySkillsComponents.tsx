@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable @next/next/no-img-element */
 import { Button } from "../ui/button";
 import { useFetchUserInfo } from "@/lib/data";
@@ -6,8 +8,6 @@ import Link from "next/link";
 import { useState, useEffect } from "react";
 
 export default function StoriesGallerySkillsComponents() {
-	const { isLoggedIn, userRole, userDetails } = useFetchUserInfo();
-
 	interface UserDetails {
 		user: {
 			userId: number;
@@ -32,6 +32,8 @@ export default function StoriesGallerySkillsComponents() {
 			gallery: [string];
 		};
 	}
+	// const [userDetails, setUserDetails] = useState<UserDetails>({});
+	const { isLoggedIn, userRole, userDetails } = useFetchUserInfo();
 
 	if (!isLoggedIn || (userRole !== "ADMIN" && userRole !== "ARTISAN")) {
 		return null;

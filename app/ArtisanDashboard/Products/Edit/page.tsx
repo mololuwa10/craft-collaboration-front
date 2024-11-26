@@ -1,12 +1,10 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 
 import styles from "@/components/dashboardComponents/users/singleUser/singleUser.module.css";
 import Image from "next/image";
-import {
-	fetchProductById,
-	useFetchAllCategories,
-	fetchAllArtisans,
-} from "@/lib/dbModels";
+import { fetchProductById, useFetchAllCategories } from "@/lib/dbModels";
 import { updateProduct, uploadProductImages } from "@/lib/auth";
 import { useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
@@ -48,18 +46,18 @@ export default function EditProduct() {
 		image: string;
 	}
 
-	interface ArtisanProfile {
-		artisanId: number;
-		artisan: {
-			userId: number;
-			firstname: string;
-			lastname: string;
-		};
-		bio: string;
-		profilePicture: string;
-		location: string;
-		storeName: string;
-	}
+	// interface ArtisanProfile {
+	// 	artisanId: number;
+	// 	artisan: {
+	// 		userId: number;
+	// 		firstname: string;
+	// 		lastname: string;
+	// 	};
+	// 	bio: string;
+	// 	profilePicture: string;
+	// 	location: string;
+	// 	storeName: string;
+	// }
 
 	// Fetch category data
 	const { categories } = useFetchAllCategories() as unknown as {
@@ -71,8 +69,8 @@ export default function EditProduct() {
 	);
 	const [product, setProduct] = useState<Product | null>(null);
 	const [error, setError] = useState("");
-	const [roles, setRoles] = useState([]);
-	const [selectedRoleId, setSelectedRoleId] = useState<string>("");
+	// const [roles, setRoles] = useState([]);
+	// const [selectedRoleId, setSelectedRoleId] = useState<string>("");
 	const [selectedCategoryId, setSelectedCategoryId] = useState<number | string>(
 		""
 	);
@@ -84,7 +82,7 @@ export default function EditProduct() {
 		},
 	]);
 	const [productImages, setProductImages] = useState<File[]>([]);
-	const [allArtisans, setAllArtisans] = useState<ArtisanProfile[]>([]);
+	// const [allArtisans, setAllArtisans] = useState<ArtisanProfile[]>([]);
 	const searchParams = useSearchParams();
 	const productId = searchParams.get("productId");
 
@@ -316,7 +314,8 @@ export default function EditProduct() {
 								name="category"
 								id="category"
 								value={selectedCategoryId}
-								onChange={(e) => setSelectedCategoryId(e.target.value)}>
+								onChange={(e) => setSelectedCategoryId(e.target.value)}
+							>
 								{categories.map((category) => (
 									<option key={category.value} value={category.value}>
 										{category.label}
@@ -363,7 +362,8 @@ export default function EditProduct() {
 										<button
 											type="button"
 											className="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600"
-											onClick={() => handleRemoveAttribute(index)}>
+											onClick={() => handleRemoveAttribute(index)}
+										>
 											Remove
 										</button>
 									</div>
@@ -371,7 +371,8 @@ export default function EditProduct() {
 								<button
 									type="button"
 									className="mt-2 bg-blue-500 text-white px-3 py-1 rounded hover:bg-blue-600"
-									onClick={handleAddAttribute}>
+									onClick={handleAddAttribute}
+								>
 									Add Attribute
 								</button>
 							</div>

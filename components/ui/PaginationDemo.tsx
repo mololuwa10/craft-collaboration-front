@@ -1,7 +1,6 @@
 import {
 	Pagination,
 	PaginationContent,
-	PaginationEllipsis,
 	PaginationItem,
 	PaginationLink,
 	PaginationNext,
@@ -34,7 +33,8 @@ export function PaginationComponent({
 						<PaginationLink
 							href="#"
 							onClick={() => paginate(index + 1)}
-							isActive={currentPage === index + 1}>
+							isActive={currentPage === index + 1}
+						>
 							{index + 1}
 						</PaginationLink>
 					</PaginationItem>

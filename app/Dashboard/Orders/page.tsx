@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable @typescript-eslint/no-unused-vars */
 "use client";
 
 import {
@@ -116,7 +118,8 @@ export default function Orders() {
 						{currentOrders.map((allOrders) => (
 							<>
 								<TableRow
-									key={allOrders.productDTO.productId + allOrders.orderInfo.id}>
+									key={allOrders.productDTO.productId + allOrders.orderInfo.id}
+								>
 									<TableCell>{allOrders.orderInfo.id}</TableCell>
 									<TableCell>
 										{allOrders.orderInfo.user?.firstname || "Unknown"}{" "}
@@ -144,7 +147,8 @@ export default function Orders() {
 												href={{
 													pathname: "/Dashboard/Orders/Edit",
 													query: { orderId: allOrders.orderInfo.id },
-												}}>
+												}}
+											>
 												<Button size={"lg"} className="mr-2 mb-2 flex">
 													Edit
 												</Button>
@@ -152,7 +156,8 @@ export default function Orders() {
 											<Button
 												size={"lg"}
 												// onClick={() => handleDelete(product.value)}
-												className="mr-2 mb-2 flex">
+												className="mr-2 mb-2 flex"
+											>
 												Delete
 											</Button>
 										</div>

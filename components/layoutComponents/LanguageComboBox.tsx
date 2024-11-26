@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable @typescript-eslint/no-unused-vars */
 "use client";
 
 import React, { useState, useEffect } from "react";
@@ -7,7 +9,7 @@ import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { useContext } from "react";
 import { LanguageContext } from "@/app/LanguageContext";
-import { useIntl } from "react-intl";
+// import { useIntl } from "react-intl";
 
 import {
 	Popover,
@@ -74,7 +76,8 @@ export function LanguageComboBox() {
 					variant="ghost"
 					role="combobox"
 					aria-expanded={open}
-					className="w-[100px] justify-between">
+					className="w-[100px] justify-between"
+				>
 					{value
 						? frameworks.find((framework) => framework.value === value)?.label
 						: "English"}
@@ -97,7 +100,8 @@ export function LanguageComboBox() {
 								onSelect={() => {
 									handleLanguageChange(framework.value, framework.label);
 									setOpen(false);
-								}}>
+								}}
+							>
 								<Check
 									className={cn(
 										"mr-2 h-4 w-4",

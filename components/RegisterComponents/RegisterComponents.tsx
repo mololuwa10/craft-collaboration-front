@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable @next/next/no-img-element */
 import { registerUser } from "@/lib/auth";
 import { useRouter } from "next/navigation";
@@ -5,6 +7,7 @@ import { useState } from "react";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { EyeIcon, EyeOffIcon } from "lucide-react";
+import Link from "next/link";
 
 export default function RegisterComponents() {
 	interface FormErrors {
@@ -125,7 +128,7 @@ export default function RegisterComponents() {
 
 					<main className="flex items-center justify-center px-8 py-8 sm:px-12 lg:col-span-7 lg:px-16 lg:py-12 xl:col-span-6">
 						<div className="max-w-xl lg:max-w-3xl">
-							<a className="block text-blue-600" href="/">
+							<Link className="block text-blue-600" href="/">
 								<span className="sr-only">Home</span>
 								<img
 									alt="Pattern"
@@ -142,7 +145,7 @@ export default function RegisterComponents() {
 										fill="currentColor"
 									/>
 								</svg> */}
-							</a>
+							</Link>
 
 							<h1 className="mt-6 text-2xl font-bold text-gray-900 sm:text-3xl md:text-4xl">
 								Welcome to Craft Collaborations

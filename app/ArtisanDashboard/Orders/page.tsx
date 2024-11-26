@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 
 import {
@@ -5,7 +6,7 @@ import {
 	TableBody,
 	TableCaption,
 	TableCell,
-	TableFooter,
+	// TableFooter,
 	TableHead,
 	TableHeader,
 	TableRow,
@@ -57,7 +58,7 @@ export default function Orders() {
 	const [loading, setLoading] = useState(true);
 	const [error, setError] = useState("");
 	const [currentPage, setCurrentPage] = useState(1);
-	const [ordersPerPage, setOrdersPerPage] = useState(10);
+	const [ordersPerPage] = useState(10);
 
 	useEffect(() => {
 		fetchOrdersByArtisan()
@@ -157,7 +158,8 @@ export default function Orders() {
 												href={{
 													pathname: "/Dashboard/Orders/Edit",
 													query: { orderId: allOrders.orderInfo.id },
-												}}>
+												}}
+											>
 												<Button size={"lg"} className="mr-2 mb-2 flex">
 													Edit
 												</Button>
@@ -165,7 +167,8 @@ export default function Orders() {
 											<Button
 												size={"lg"}
 												// onClick={() => handleDelete(product.value)}
-												className="mr-2 mb-2 flex">
+												className="mr-2 mb-2 flex"
+											>
 												Delete
 											</Button>
 										</div>

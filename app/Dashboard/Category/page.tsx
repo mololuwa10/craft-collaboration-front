@@ -1,3 +1,6 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable @typescript-eslint/no-unused-vars */
+
 "use client";
 
 import {
@@ -96,7 +99,9 @@ export default function Category() {
 		const confirmation = window.confirm(
 			"Are you sure you want to delete this category?"
 		);
-		if (!confirmation) {return};
+		if (!confirmation) {
+			return;
+		}
 
 		try {
 			const jwt = localStorage.getItem("jwt");
@@ -173,7 +178,8 @@ export default function Category() {
 											<>
 												<Button
 													onClick={() => handleSaveEdit(category.value)}
-													className="mr-2 mb-2 flex">
+													className="mr-2 mb-2 flex"
+												>
 													Save
 												</Button>
 												<Button onClick={() => setEditingCategoryId(null)}>
@@ -187,13 +193,15 @@ export default function Category() {
 													setNewCategoryName(category.label);
 													setNewCategoryDescription(category.description);
 												}}
-												className="mr-2 mb-2 flex">
+												className="mr-2 mb-2 flex"
+											>
 												Edit
 											</Button>
 										)}
 										<Button
 											onClick={() => handleDelete(category.value)}
-											className="hover:bg-gray-700">
+											className="hover:bg-gray-700"
+										>
 											Delete
 										</Button>
 
@@ -202,7 +210,8 @@ export default function Category() {
 												href={{
 													pathname: "/Dashboard/Category/SubCategory",
 													query: { categoryId: category.value },
-												}}>
+												}}
+											>
 												View Sub Category
 											</Link>
 										</Button>

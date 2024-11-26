@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 "use client";
 
 import styles from "@/components/dashboardComponents/users/addUser/addUser.module.css";
@@ -79,7 +80,8 @@ const AddCategoryPage = () => {
 							id="description"
 							value={categoryDescription}
 							onChange={(event) => setCategoryDescription(event.target.value)}
-							placeholder="Category Description"></textarea>
+							placeholder="Category Description"
+						></textarea>
 						<input
 							type="file"
 							ref={fileInputRef}
@@ -89,7 +91,8 @@ const AddCategoryPage = () => {
 						<button
 							className="my-8"
 							type="button"
-							onClick={() => fileInputRef.current?.click()}>
+							onClick={() => fileInputRef.current?.click()}
+						>
 							Select Image
 						</button>
 
